@@ -5,21 +5,22 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Text.Json.Serialization;
+using System.IO;
 
 namespace FN738S_HFT_2023241.Models
 {
-    public class Room
+    public class TeacherHeadOfHouse
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ID { get; set; }
-
         [Required]
-        [Range(0, 30)]
-        public int Capacity { get; set; }
 
-        [JsonIgnore]
-        [NotMapped]
-        public ICollection<Student> Residents { get; set; }
+        [ForeignKey(nameof(Teacher.Id))]
+        public int Teacher_ID { get; set; }
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int House_ID { get; set; }
+
+        public int Year_Commenced { get; set; }
     }
+
 }
