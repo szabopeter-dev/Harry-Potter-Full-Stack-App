@@ -11,6 +11,19 @@ namespace FN738S_HFT_2023241.Models
 {
     public class Student
     {
+        public Student()
+        {
+        }
+
+        public Student(int id, int houseId, string name)
+        {
+            Id = id;
+            HouseId = houseId;
+            Name = name;
+            
+            
+        }
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
@@ -19,8 +32,9 @@ namespace FN738S_HFT_2023241.Models
 
         [StringLength(240)]
         public string Name { get; set; }
-        public HouseType HouseType { get; set; }
+        
        
+        public virtual House House { get; set; }
 
     }
 }

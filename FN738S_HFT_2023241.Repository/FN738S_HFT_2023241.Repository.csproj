@@ -5,12 +5,6 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="Data\Harryp.mdf" />
-    <None Remove="Data\HarryPotterDb.mdf" />
-    <None Remove="Data\HarryPotterDb_log.ldf" />
-    <None Remove="Data\Harryp_log.ldf" />
-  </ItemGroup>
 
   <ItemGroup>
     <Content Include="Data\HarryPotterDb.mdf">
