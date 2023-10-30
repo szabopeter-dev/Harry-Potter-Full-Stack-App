@@ -14,6 +14,7 @@ namespace FN738S_HFT_2023241.Models
         public House()
         {
             Students = new HashSet<Student>();
+            Teachers = new HashSet<Teacher>();
         }
 
         public House(int iD, HouseType house_name, string founder_name )
@@ -22,6 +23,7 @@ namespace FN738S_HFT_2023241.Models
             House_name = house_name;
             Founder_name = founder_name;
             Students = new HashSet<Student>();
+            Teachers = new HashSet<Teacher>();
         }
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -31,6 +33,8 @@ namespace FN738S_HFT_2023241.Models
         public string Founder_name {  get; set; }
 
         public virtual ICollection<Student> Students { get; set; }
+
+        public virtual ICollection<Teacher> Teachers { get; set; }
         
     }
 }

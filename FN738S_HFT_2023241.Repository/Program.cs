@@ -12,9 +12,13 @@ namespace FN738S_HFT_2023241.Repository
 
             HarrypDbContext db = new HarrypDbContext();
 
-            foreach(var item in db.Houses)
+            foreach (var item in db.Houses)
             {
-                Console.WriteLine(item.Founder_name);
+                Console.WriteLine(item.House_name);
+                foreach(var teacher in item.Teachers)
+                {
+                    Console.WriteLine("\t" + teacher.Name);
+                }
             }
         }
 

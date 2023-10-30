@@ -2,8 +2,10 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,7 +21,7 @@ namespace FN738S_HFT_2023241.Repository.Data
         public DbSet <Student> Students { get; set; }
         public DbSet <Teacher> Teachers { get; set; }
         
-        
+        public DbSet <TeacherHeadOfHouse> TeachersHeadOfHouses { get; set; }
         public DbSet <House> Houses { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder builder)
@@ -55,8 +57,34 @@ namespace FN738S_HFT_2023241.Repository.Data
                 new House(2, Models.Enums.HouseType.Slytherin, "Salazar Slytherin"),
                 new House(3, Models.Enums.HouseType.Hufflepuff, "Helga Hufflepuff"),
                 new House(4, Models.Enums.HouseType.Ravenclaw, "Rowena Ravenclaw")
-
             });
+
+            modelBuilder.Entity<Teacher>()
+            .HasMany(x => x.Houses)
+            .WithMany(x => x.Teachers)
+            .UsingEntity<TeacherHeadOfHouse>(
+            x => x.HasOne(x => x.House)
+            .WithMany().HasForeignKey(x => x.House_ID).OnDelete(DeleteBehavior.Cascade),
+            x => x.HasOne(x => x.Teacher)
+            .WithMany().HasForeignKey(x => x.Teacher_ID).OnDelete(DeleteBehavior.Cascade));
+            modelBuilder.Entity<Teacher>().HasData(new Teacher[]
+            {
+                new Teacher(1, "Severus Snape", "Defense Against the Dark Arts"),
+                new Teacher(2, "Silvanus Kettleburn", "Care of Magical Creatures"),
+                new Teacher(3, "Dolores Umbridge", "Defense Against the Dark Arts"),
+                new Teacher(4, "Elspeth MacGillony", "Study of Ancient Runes"),
+                new Teacher(5, "Albus Dumbledore", "Transfiguration"),
+                new Teacher(6, "Pomona Sprout", "Herbology")
+            });
+            modelBuilder.Entity<TeacherHeadOfHouse>().HasData(new TeacherHeadOfHouse[]
+           {
+                new TeacherHeadOfHouse(1,2, 1996),
+                new TeacherHeadOfHouse(4, 1, 2010),
+                new TeacherHeadOfHouse(5,1, 1997),
+               
+           });
+            
+
         }
 
 
