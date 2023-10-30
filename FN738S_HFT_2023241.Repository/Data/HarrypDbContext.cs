@@ -43,12 +43,18 @@ namespace FN738S_HFT_2023241.Repository.Data
             modelBuilder.Entity<Student>().HasData(new Student[]
             {
                 new Student(1, 1, "Harry Potter"),
-                new Student(2, 2, "Draco Malfoy")
+                new Student(2, 2, "Draco Malfoy"),
+                new Student(3, 1, "Hermione Granger"),
+                new Student(4, 3, "Cedric Digorry"),
+                new Student(5, 4, "Padma Patil")
             });
             modelBuilder.Entity<House>().HasData(new House[]
             {
                 new House(1, Models.Enums.HouseType.Gryffindor, "Godric Gryffindor"),
-                new House(2, Models.Enums.HouseType.Slytherin, "Salazar Slytherin")
+                new House(2, Models.Enums.HouseType.Slytherin, "Salazar Slytherin"),
+                new House(3, Models.Enums.HouseType.Hufflepuff, "Helga Hufflepuff"),
+                new House(4, Models.Enums.HouseType.Ravenclaw, "Rowena Ravenclaw")
+
             });
         }
 

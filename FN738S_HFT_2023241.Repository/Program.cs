@@ -1,4 +1,5 @@
 ﻿using FN738S_HFT_2023241.Repository.Data;
+using Microsoft.Extensions.Caching.Memory;
 using System;
 
 namespace FN738S_HFT_2023241.Repository
@@ -7,14 +8,15 @@ namespace FN738S_HFT_2023241.Repository
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+
 
             HarrypDbContext db = new HarrypDbContext();
 
-            foreach (var item in db.Students)
+            foreach(var item in db.Houses)
             {
-                Console.WriteLine(item.Name);
+                Console.WriteLine(item.Founder_name);
             }
         }
+
     }
 }
