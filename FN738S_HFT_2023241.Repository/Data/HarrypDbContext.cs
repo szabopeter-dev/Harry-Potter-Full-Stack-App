@@ -102,7 +102,16 @@ namespace FN738S_HFT_2023241.Repository.Data
               new Subject_teacher(4, 2, 1983)
 
            });
-
+            modelBuilder.Entity<Subject_teacher>()
+            .HasOne(r => r.Subject)
+            .WithMany(subject => subject.Subject_Teachers)
+            .HasForeignKey(r => r.Subject_ID)
+            .OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<Subject_teacher>()
+            .HasOne(r => r.Teacher)
+            .WithMany(teacher => teacher.Subject_Teachers)
+            .HasForeignKey(r => r.Teacher_ID)
+            .OnDelete(DeleteBehavior.Cascade);
 
 
         }

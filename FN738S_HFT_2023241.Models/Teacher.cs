@@ -31,6 +31,7 @@ namespace FN738S_HFT_2023241.Models
         public string Name { get; set; }
         public virtual House House { get; set; }
         public virtual ICollection<Subject> Subjects { get; set; }
-      
+        public virtual ICollection<Subject_teacher> Subject_Teachers { get; }
+
     }
 }

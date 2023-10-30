@@ -17,9 +17,9 @@ namespace FN738S_HFT_2023241.Repository
             foreach(var iteem in db.Subjects)
             {
                 Console.WriteLine(iteem.Subject_Name);
-                foreach (var teacher in iteem.Teachers)
+                foreach (var subject_teacher in iteem.Subject_Teachers)
                 {
-                    Console.WriteLine("\t" + teacher.Name);
+                    Console.WriteLine("\t" + subject_teacher.Year_taught + ": " + subject_teacher.Teacher.Name);
                 }
             }
 
