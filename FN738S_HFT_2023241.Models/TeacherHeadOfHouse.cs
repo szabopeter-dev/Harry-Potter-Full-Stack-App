@@ -18,6 +18,7 @@ namespace FN738S_HFT_2023241.Models
         public int Teacher_ID { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [ForeignKey(nameof(House))]
         public int House_ID { get; set; }
 
         public int Year_Commenced { get; set; }
