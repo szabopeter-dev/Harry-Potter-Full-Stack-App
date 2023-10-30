@@ -14,5 +14,7 @@ namespace FN738S_HFT_2023241.Models
         [Key]
         public int Id { get; set; }
         public string Name { get; set; }
+
+        public virtual ICollection<House> Houses { get; set; }
     }
 }

@@ -16,6 +16,8 @@ namespace FN738S_HFT_2023241.Models
         public int ID { get; set; }
         public HouseType House_name {  get; set; }
         public string Founder_name {  get; set; }
+
+        public virtual ICollection<Teacher> Teachers { get; set; }
         
     }
 }

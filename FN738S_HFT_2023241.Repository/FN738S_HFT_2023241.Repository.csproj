@@ -7,14 +7,16 @@
 
   <ItemGroup>
     <None Remove="Data\Harryp.mdf" />
+    <None Remove="Data\HarryPotterDb.mdf" />
+    <None Remove="Data\HarryPotterDb_log.ldf" />
     <None Remove="Data\Harryp_log.ldf" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Data\Harryp.mdf">
+    <Content Include="Data\HarryPotterDb.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Data\Harryp_log.ldf">
+    <Content Include="Data\HarryPotterDb_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

@@ -22,6 +22,9 @@ namespace FN738S_HFT_2023241.Models
         public int House_ID { get; set; }
 
         public int Year_Commenced { get; set; }
+
+        public virtual Teacher Teacher { get; private set; }
+        public virtual House House { get; set; }
     }
 
 }

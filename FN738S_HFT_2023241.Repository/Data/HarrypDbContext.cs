@@ -17,7 +17,7 @@ namespace FN738S_HFT_2023241.Repository.Data
 
         public DbSet <Student> Students { get; set; }
         public DbSet <Teacher> Teachers { get; set; }
-        public DbSet <Room> Rooms { get; set; }
+        
         public DbSet <TeacherHeadOfHouse> TeachersHeadOfHouse { get; set; }
         public DbSet <House> House { get; set; }
 
