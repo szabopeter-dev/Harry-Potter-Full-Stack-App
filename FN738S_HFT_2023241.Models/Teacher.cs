@@ -12,22 +12,25 @@ namespace FN738S_HFT_2023241.Models
     {
         public Teacher()
         {
-            Houses = new HashSet<House>();
+            Subjects = new HashSet<Subject>();
         }
 
-        public Teacher(int id, string name, string subject)
+        public Teacher(int id, int houseid, string name)
         {
             Id = id;
             Name = name;
-            Subject = subject;
-            Houses = new HashSet<House>();
+            House_Id = houseid;
+            Subjects = new HashSet<Subject>();
         }
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public int Id { get; set; }
+        [ForeignKey(nameof(House))]
+        public int House_Id { get; set; }
         public string Name { get; set; }
-        public string Subject { get; set; }
-        public virtual ICollection<House> Houses { get; set; }
+        public virtual House House { get; set; }
+        public virtual ICollection<Subject> Subjects { get; set; }
+      
     }
 }

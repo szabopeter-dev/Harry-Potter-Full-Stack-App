@@ -1,6 +1,8 @@
-﻿using FN738S_HFT_2023241.Repository.Data;
+﻿using FN738S_HFT_2023241.Models;
+using FN738S_HFT_2023241.Repository.Data;
 using Microsoft.Extensions.Caching.Memory;
 using System;
+using System.ComponentModel;
 
 namespace FN738S_HFT_2023241.Repository
 {
@@ -12,14 +14,19 @@ namespace FN738S_HFT_2023241.Repository
 
             HarrypDbContext db = new HarrypDbContext();
 
-            foreach (var item in db.Houses)
+            foreach(var iteem in db.Subjects)
             {
-                Console.WriteLine(item.House_name);
-                foreach(var teacher in item.Teachers)
+                Console.WriteLine(iteem.Subject_Name);
+                foreach (var teacher in iteem.Teachers)
                 {
                     Console.WriteLine("\t" + teacher.Name);
                 }
             }
+
+            
+            
+
+            
         }
 
     }

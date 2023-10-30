@@ -21,7 +21,8 @@ namespace FN738S_HFT_2023241.Repository.Data
         public DbSet <Student> Students { get; set; }
         public DbSet <Teacher> Teachers { get; set; }
         
-        public DbSet <TeacherHeadOfHouse> TeachersHeadOfHouses { get; set; }
+        public DbSet <Subject> Subjects { get; set; }
+        public DbSet <Subject_teacher> Subject_Teachers { get; set; }
         public DbSet <House> Houses { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder builder)
@@ -58,32 +59,51 @@ namespace FN738S_HFT_2023241.Repository.Data
                 new House(3, Models.Enums.HouseType.Hufflepuff, "Helga Hufflepuff"),
                 new House(4, Models.Enums.HouseType.Ravenclaw, "Rowena Ravenclaw")
             });
-
-            modelBuilder.Entity<Teacher>()
-            .HasMany(x => x.Houses)
-            .WithMany(x => x.Teachers)
-            .UsingEntity<TeacherHeadOfHouse>(
-            x => x.HasOne(x => x.House)
-            .WithMany().HasForeignKey(x => x.House_ID).OnDelete(DeleteBehavior.Cascade),
-            x => x.HasOne(x => x.Teacher)
-            .WithMany().HasForeignKey(x => x.Teacher_ID).OnDelete(DeleteBehavior.Cascade));
+            modelBuilder.Entity<Teacher>(teacher => teacher
+            .HasOne(teacher => teacher.House)
+            .WithMany(house => house.Teachers)
+            .HasForeignKey(teacher => teacher.House_Id)
+            .OnDelete(DeleteBehavior.Cascade));
             modelBuilder.Entity<Teacher>().HasData(new Teacher[]
             {
-                new Teacher(1, "Severus Snape", "Defense Against the Dark Arts"),
-                new Teacher(2, "Silvanus Kettleburn", "Care of Magical Creatures"),
-                new Teacher(3, "Dolores Umbridge", "Defense Against the Dark Arts"),
-                new Teacher(4, "Elspeth MacGillony", "Study of Ancient Runes"),
-                new Teacher(5, "Albus Dumbledore", "Transfiguration"),
-                new Teacher(6, "Pomona Sprout", "Herbology")
+                new Teacher(1, 2, "Severus Snape" ),
+                new Teacher(2, 3, "Silvanus Kettleburn"),
+                new Teacher(3, 4, "Dolores Umbridge"),
+                new Teacher(4, 1, "Elspeth MacGillony"),
+                new Teacher(5, 1, "Albus Dumbledore"),
+                new Teacher(6, 3,"Pomona Sprout")
+
             });
-            modelBuilder.Entity<TeacherHeadOfHouse>().HasData(new TeacherHeadOfHouse[]
+            modelBuilder.Entity<Subject>()
+            .HasMany(x => x.Teachers)
+            .WithMany(x => x.Subjects)
+            .UsingEntity<Subject_teacher>(
+            x => x.HasOne(x => x.Teacher)
+            .WithMany().HasForeignKey(x => x.Teacher_ID).OnDelete(DeleteBehavior.Cascade),
+            x => x.HasOne(x => x.Subject)
+            .WithMany().HasForeignKey(x => x.Subject_ID).OnDelete(DeleteBehavior.Cascade));
+            modelBuilder.Entity<Subject>().HasData(new Subject[]
+            {
+                new Subject(1, "Defence Against the Dark Arts"),
+                new Subject(2, "Care of Magical Creatures"),
+                new Subject(3, "Muggle Studies"),
+                new Subject(4, "Potions"),
+                new Subject(5, "Herbology")
+
+            });
+            modelBuilder.Entity<Subject_teacher>().HasData(new Subject_teacher[]
            {
-                new TeacherHeadOfHouse(1,2, 1996),
-                new TeacherHeadOfHouse(4, 1, 2010),
-                new TeacherHeadOfHouse(5,1, 1997),
-               
+              new Subject_teacher(1, 4, 1995),
+              new Subject_teacher(1, 1, 1996),
+              new Subject_teacher(5, 5, 1970),
+              new Subject_teacher(2, 3, 2000),
+              new Subject_teacher(6, 1, 2003),
+              new Subject_teacher(3, 1, 2000),
+              new Subject_teacher(4, 2, 1983)
+
            });
-            
+
+
 
         }
 

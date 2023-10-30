@@ -33,7 +33,6 @@ namespace FN738S_HFT_2023241.Models
         [StringLength(240)]
         public string Name { get; set; }
         
-       
         public virtual House House { get; set; }
 
     }
