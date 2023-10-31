@@ -14,7 +14,7 @@ namespace FN738S_HFT_2023241.Client
             var repo = new StudentRepository(ctx);
             var logic = new Studentlogic(repo);
 
-            
+           
 
             var items = logic.ReadAll();
             ;

@@ -29,5 +29,7 @@ namespace FN738S_HFT_2023241.Models
         public virtual ICollection<Teacher> Teachers { get;}
         public virtual ICollection<Subject_teacher> Subject_Teachers { get;}
 
+
+
     }
 }
