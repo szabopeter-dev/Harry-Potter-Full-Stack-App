@@ -93,13 +93,13 @@ namespace FN738S_HFT_2023241.Repository.Data
             });
             modelBuilder.Entity<Subject_teacher>().HasData(new Subject_teacher[]
            {
-              new Subject_teacher(1, 4, 1995),
-              new Subject_teacher(1, 1, 1996),
-              new Subject_teacher(5, 5, 1970),
-              new Subject_teacher(2, 3, 2000),
-              new Subject_teacher(6, 1, 2003),
-              new Subject_teacher(3, 1, 2000),
-              new Subject_teacher(4, 2, 1983)
+              new Subject_teacher(1, 1, 4, 1995),
+              new Subject_teacher(2, 1, 1, 1996),
+              new Subject_teacher(3, 5, 5, 1970),
+              new Subject_teacher(4, 2, 3, 2000),
+              new Subject_teacher(5, 6, 1, 2003),
+              new Subject_teacher(6, 3, 1, 2000),
+              new Subject_teacher(7, 4, 2, 1983)
 
            });
             modelBuilder.Entity<Subject_teacher>()

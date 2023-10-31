@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -13,13 +14,17 @@ namespace FN738S_HFT_2023241.Models
         {
         }
 
-        public Subject_teacher(int teacher_ID, int subject_ID, int year_taught)
+        public Subject_teacher(int subject_teacher_id, int teacher_ID, int subject_ID, int year_taught)
         {
+            Subject_teacher_id = subject_teacher_id;
             Teacher_ID = teacher_ID;
             Subject_ID = subject_ID;
             Year_taught = year_taught;
         }
 
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Subject_teacher_id { get; set; }
         [ForeignKey(nameof(Teacher))]
         public int Teacher_ID { get; set; }
 
