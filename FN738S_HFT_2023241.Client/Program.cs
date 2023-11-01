@@ -10,13 +10,19 @@ namespace FN738S_HFT_2023241.Client
     {
         static void Main(string[] args)
         {
-            var ctx = new HarrypDbContext();
-            var repo = new StudentRepository(ctx);
-            var logic = new Studentlogic(repo);
+            //var ctx = new HarrypDbContext();
 
-           
+            //var studentrepo = new StudentRepository(ctx);
+            //var logic = new Studentlogic(studentrepo);
 
-            var items = logic.ReadAll();
+            //var houserepo = new HouseRepository(ctx);
+            //var houselogic = new Houselogic(houserepo);
+
+
+
+            //var items = houselogic.ReadAll();
+            //var nc = houselogic.GetHouseFromFounderName("Godric Gryffindor");
+
             ;
         }
     }

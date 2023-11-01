@@ -10,5 +10,6 @@ namespace FN738S_HFT_2023241.Logic.Interfaces
         House Read(int id);
         IQueryable<House> ReadAll();
         void Update(House item);
+        IQueryable? GetHouseFromFounderName(string foundername);
     }
 }

@@ -6,7 +6,6 @@ namespace FN738S_HFT_2023241.Logic
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
         }
     }
 }
