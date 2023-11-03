@@ -1,5 +1,8 @@
 ﻿using FN738S_HFT_2023241.Models;
+using FN738S_HFT_2023241.Repository.Data;
+using System.Collections.Generic;
 using System.Linq;
+using static FN738S_HFT_2023241.Models.Subject_teacher;
 
 namespace FN738S_HFT_2023241.Logic.Interfaces
 {
@@ -10,5 +13,6 @@ namespace FN738S_HFT_2023241.Logic.Interfaces
         Subject_teacher Read(int id);
         IQueryable<Subject_teacher> ReadAll();
         void Update(Subject_teacher item);
+        public IEnumerable<WhoTaughtInThisYear> GetTeachersByYearTaught(int year);
     }
 }

@@ -1,18 +1,23 @@
 ﻿using FN738S_HFT_2023241.Logic.Interfaces;
 using FN738S_HFT_2023241.Models;
 using FN738S_HFT_2023241.Models.Enums;
+using FN738S_HFT_2023241.Repository.Data;
 using FN738S_HFT_2023241.Repository.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static FN738S_HFT_2023241.Models.Student;
+using static FN738S_HFT_2023241.Models.Subject;
 
 namespace FN738S_HFT_2023241.Logic.Classes
 {
     public class Studentlogic : IStudentlogic
     {
         private IRepository<Student> repo;
+
         public Studentlogic(IRepository<Student> repo)
         {
             this.repo = repo;
@@ -55,7 +60,19 @@ namespace FN738S_HFT_2023241.Logic.Classes
         {
             repo.Update(item);
         }
+        public IEnumerable<WhoIsAQuidditchPlayer> GetQuidditchPlayers()
+        {
 
-        
+            return ReadAll()
+         .Where(student => student.Quidditch_player)
+         .Select(student => new WhoIsAQuidditchPlayer
+         {
+             studentname = student.Name
+         });
+
+        }
+
+       
+
     }
 }

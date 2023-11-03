@@ -1,25 +1,28 @@
 ﻿using FN738S_HFT_2023241.Logic.Interfaces;
 using FN738S_HFT_2023241.Models;
 using FN738S_HFT_2023241.Models.Enums;
+using FN738S_HFT_2023241.Repository.Data;
 using FN738S_HFT_2023241.Repository.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static FN738S_HFT_2023241.Models.House;
 
 namespace FN738S_HFT_2023241.Logic.Classes
 {
     public class Houselogic : IHouselogic
     {
         private IRepository<House> repo;
+        private IEnumerable<House> houses;
         public Houselogic(IRepository<House> repo)
         {
             this.repo = repo;
         }
         public void Create(House item)
         {
-            
+
             repo.Create(item);
         }
 
@@ -53,14 +56,20 @@ namespace FN738S_HFT_2023241.Logic.Classes
             repo.Update(item);
         }
 
-        public IQueryable? GetHouseFromFounderName(string foundername)
+
+
+        public IEnumerable<WhoIsInGryffindor> GetStudentFromGryffindor(HouseType name)
         {
-           
-           
-            return this.repo
-               .ReadAll()
-               .Where(h => h.Founder_name == foundername);
+
+            return ReadAll()
+                .Where(_ => _.House_name.Equals(name))
+                .SelectMany(_ => _.Students)
+            .Select(_ => new WhoIsInGryffindor()
+            {
+                studentname = _.Name
+            });
         }
+      
     }
 }
 

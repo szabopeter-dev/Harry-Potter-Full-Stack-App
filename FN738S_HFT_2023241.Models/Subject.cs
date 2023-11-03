@@ -29,7 +29,40 @@ namespace FN738S_HFT_2023241.Models
         public virtual ICollection<Teacher> Teachers { get;}
         public virtual ICollection<Subject_teacher> Subject_Teachers { get;}
 
+        public class WhoTeachesTheSubject
+        {
+            public WhoTeachesTheSubject()
+            {
+            }
+            public string teachername { get; set; }
+            public string subjectname { get; set; }
+            public override string ToString()
+            {
+                return $"{teachername} {subjectname}";
+            }
 
+            public override bool Equals(object obj)
+            {
+                WhoTeachesTheSubject b = obj as WhoTeachesTheSubject;
+                if (b == null)
+                {
+                    return false;
+                }
+                else
+                {
+                    return this.teachername == b.teachername; 
+                    
+
+
+                }
+            }
+
+            public override int GetHashCode()
+            {
+                return HashCode.Combine(this.teachername);
+            }
+            
+        }
 
     }
 }

@@ -1,11 +1,17 @@
 ﻿using FN738S_HFT_2023241.Logic.Interfaces;
 using FN738S_HFT_2023241.Models;
+using FN738S_HFT_2023241.Models.Enums;
+using FN738S_HFT_2023241.Repository.Data;
 using FN738S_HFT_2023241.Repository.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static FN738S_HFT_2023241.Models.House;
+using static FN738S_HFT_2023241.Models.Student;
+using static FN738S_HFT_2023241.Models.Subject_teacher;
 
 namespace FN738S_HFT_2023241.Logic.Classes
 {
@@ -54,5 +60,16 @@ namespace FN738S_HFT_2023241.Logic.Classes
         {
             repo.Update(item);
         }
+
+        public IEnumerable<WhoTaughtInThisYear> GetTeachersByYearTaught(int year)
+        {
+            return ReadAll()
+        .Where(subjectTeacher => subjectTeacher.Year_taught == year)
+        .Select(subjectTeacher => new WhoTaughtInThisYear
+        {
+            teachername = subjectTeacher.Teacher.Name
+        });
+    }
+       
     }
 }

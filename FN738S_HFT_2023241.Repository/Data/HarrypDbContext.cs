@@ -46,18 +46,18 @@ namespace FN738S_HFT_2023241.Repository.Data
             .OnDelete(DeleteBehavior.Cascade));
             modelBuilder.Entity<Student>().HasData(new Student[]
             {
-                new Student(1, 1, "Harry Potter"),
-                new Student(2, 2, "Draco Malfoy"),
-                new Student(3, 1, "Hermione Granger"),
-                new Student(4, 3, "Cedric Digorry"),
-                new Student(5, 4, "Padma Patil")
+                new Student(1, 1, "Harry Potter", true),
+                new Student(2, 2, "Draco Malfoy", true),
+                new Student(3, 1, "Hermione Granger", false),
+                new Student(4, 3, "Cedric Digorry", false),
+                new Student(5, 4, "Padma Patil", false)
             });
             modelBuilder.Entity<House>().HasData(new House[]
             {
-                new House(1, Models.Enums.HouseType.Gryffindor, "Godric Gryffindor"),
-                new House(2, Models.Enums.HouseType.Slytherin, "Salazar Slytherin"),
-                new House(3, Models.Enums.HouseType.Hufflepuff, "Helga Hufflepuff"),
-                new House(4, Models.Enums.HouseType.Ravenclaw, "Rowena Ravenclaw")
+                new House(1, Models.Enums.HouseType.Gryffindor, "Godric Gryffindor", 350),
+                new House(2, Models.Enums.HouseType.Slytherin, "Salazar Slytherin", 240),
+                new House(3, Models.Enums.HouseType.Hufflepuff, "Helga Hufflepuff", 230),
+                new House(4, Models.Enums.HouseType.Ravenclaw, "Rowena Ravenclaw", 100)
             });
             modelBuilder.Entity<Teacher>(teacher => teacher
             .HasOne(teacher => teacher.House)
@@ -66,12 +66,13 @@ namespace FN738S_HFT_2023241.Repository.Data
             .OnDelete(DeleteBehavior.Cascade));
             modelBuilder.Entity<Teacher>().HasData(new Teacher[]
             {
-                new Teacher(1, 2, "Severus Snape" ),
-                new Teacher(2, 3, "Silvanus Kettleburn"),
-                new Teacher(3, 4, "Dolores Umbridge"),
-                new Teacher(4, 1, "Elspeth MacGillony"),
-                new Teacher(5, 1, "Albus Dumbledore"),
-                new Teacher(6, 3,"Pomona Sprout")
+                new Teacher(1, 2, "Severus Snape", false ),
+                new Teacher(2, 3, "Silvanus Kettleburn", false),
+                new Teacher(3, 4, "Dolores Umbridge", false),
+                new Teacher(4, 1, "Elspeth MacGillony", true),
+                new Teacher(5, 1, "Albus Dumbledore", false),
+                new Teacher(6, 3,"Pomona Sprout", false),
+                new Teacher(7, 1, "Remus Lupin", true)
 
             });
             modelBuilder.Entity<Subject>()
