@@ -18,6 +18,7 @@ namespace FN738S_HFT_2023241.Client
 
             //var teacherrepo = new TeacherRepository(ctx);
             //var teacherlogic = new Teacherlogic(teacherrepo);
+            Console.WriteLine(  );
 
             //var houserepo = new HouseRepository(ctx);
             //var houselogic = new Houselogic(houserepo);
@@ -28,7 +29,7 @@ namespace FN738S_HFT_2023241.Client
             //var subject_teacherrepo = new Subject_teacherRepository(ctx);
             //var subject_teacherlogic = new Subject_teacherlogic(subject_teacherrepo);
 
-    
+
             //var nc1 = houselogic.GetStudentFromGryffindor(Models.Enums.HouseType.Gryffindor);
 
             //var nc2 = subject_teacherlogic.GetTeachersByYearTaught(2000);
@@ -39,7 +40,7 @@ namespace FN738S_HFT_2023241.Client
 
             //var nc5 = subjectlogic.GetTeacherFromSubject("Defence Against the Dark Arts");
 
-            
+
 
 
 
