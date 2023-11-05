@@ -71,7 +71,9 @@ namespace FN738S_HFT_2023241.Logic.Classes
                 .SelectMany(_ => _.Teachers)
             .Select(_ => new WhoTeachesTheSubject()
             {
-                teachername = _.Name
+                teachername = _.Name,
+                subjectname = subjectname
+                
                 
                 
                 

@@ -38,7 +38,7 @@ namespace FN738S_HFT_2023241.Models
             public string subjectname { get; set; }
             public override string ToString()
             {
-                return $"{teachername} {subjectname}";
+                return $"{teachername}:  {subjectname}";
             }
 
             public override bool Equals(object obj)
@@ -50,7 +50,8 @@ namespace FN738S_HFT_2023241.Models
                 }
                 else
                 {
-                    return this.teachername == b.teachername; 
+                    return this.teachername == b.teachername
+                        && this.subjectname == b.subjectname;
                     
 
 
@@ -59,7 +60,7 @@ namespace FN738S_HFT_2023241.Models
 
             public override int GetHashCode()
             {
-                return HashCode.Combine(this.teachername);
+                return HashCode.Combine(this.teachername, this.subjectname);
             }
             
         }
