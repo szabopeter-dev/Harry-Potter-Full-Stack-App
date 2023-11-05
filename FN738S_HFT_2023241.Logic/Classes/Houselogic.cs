@@ -22,7 +22,10 @@ namespace FN738S_HFT_2023241.Logic.Classes
         }
         public void Create(House item)
         {
-
+            if(item.House_points < 100)
+            {
+                throw new ArgumentException("House Point is too low.");
+            }
             repo.Create(item);
         }
 

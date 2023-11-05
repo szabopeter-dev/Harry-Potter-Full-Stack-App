@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace FN738S_HFT_2023241.Models
@@ -35,6 +36,8 @@ namespace FN738S_HFT_2023241.Models
         public string Founder_name {  get; set; }
         public int House_points { get; set; }
 
+        [JsonIgnore]
+        [NotMapped]
         public virtual ICollection<Student> Students { get; set; }
 
         public virtual ICollection<Teacher> Teachers { get; set; }

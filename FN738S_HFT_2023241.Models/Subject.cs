@@ -26,8 +26,8 @@ namespace FN738S_HFT_2023241.Models
         [Key]
         public int Id { get; set; }
         public string Subject_Name { get; set; }
-        public virtual ICollection<Teacher> Teachers { get;}
-        public virtual ICollection<Subject_teacher> Subject_Teachers { get;}
+        public virtual ICollection<Teacher> Teachers { get; set; }
+        public virtual ICollection<Subject_teacher> Subject_Teachers { get; set; }
 
         public class WhoTeachesTheSubject
         {
