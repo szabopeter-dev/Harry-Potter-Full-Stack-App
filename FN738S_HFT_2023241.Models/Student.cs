@@ -31,10 +31,11 @@ namespace FN738S_HFT_2023241.Models
         [ForeignKey(nameof(House))]
         public int HouseId { get; set; }
 
-        [StringLength(240)]
+        [StringLength(100)]
         public string Name { get; set; }
         public bool Quidditch_player { get; set; }
-        
+
+        [NotMapped]
         public virtual House House { get; set; }
 
         public class WhoIsAQuidditchPlayer

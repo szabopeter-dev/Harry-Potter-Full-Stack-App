@@ -33,6 +33,7 @@ namespace FN738S_HFT_2023241.Models
         [Key]
         public int ID { get; set; }
         public HouseType House_name {  get; set; }
+        [MaxLength(100)]
         public string Founder_name {  get; set; }
         public int House_points { get; set; }
 

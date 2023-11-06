@@ -29,10 +29,14 @@ namespace FN738S_HFT_2023241.Models
         public int Id { get; set; }
         [ForeignKey(nameof(House))]
         public int House_Id { get; set; }
+        [MaxLength(100)]
         public string Name { get; set; }
         public bool Animagus { get; set; }
+        [NotMapped]
         public virtual House House { get; set; }
+        [NotMapped]
         public virtual ICollection<Subject> Subjects { get; set; }
+        [NotMapped]
         public virtual ICollection<Subject_teacher> Subject_Teachers { get; }
 
         public class WhoIsAnAnimagus

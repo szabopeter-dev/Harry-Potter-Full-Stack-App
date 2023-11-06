@@ -25,8 +25,11 @@ namespace FN738S_HFT_2023241.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public int Id { get; set; }
+        [MaxLength(100)]
         public string Subject_Name { get; set; }
+        [NotMapped]
         public virtual ICollection<Teacher> Teachers { get; set; }
+        [NotMapped]
         public virtual ICollection<Subject_teacher> Subject_Teachers { get; set; }
 
         public class WhoTeachesTheSubject

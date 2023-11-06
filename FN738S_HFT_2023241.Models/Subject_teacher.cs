@@ -31,7 +31,9 @@ namespace FN738S_HFT_2023241.Models
         [ForeignKey(nameof(Subject))]
         public int Subject_ID { get; set; }
         public int Year_taught { get; set; }
+        [NotMapped]
         public virtual Subject Subject { get; private set; }
+        [NotMapped]
         public virtual Teacher Teacher { get; private set; }
 
         public class WhoTaughtInThisYear
