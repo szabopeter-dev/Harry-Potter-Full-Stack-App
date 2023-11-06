@@ -68,6 +68,7 @@ namespace FN738S_HFT_2023241.Logic.Classes
             .Select(teacher => new WhoIsAnAnimagus
             {
                 teachername = teacher.Name
+
             });
             
         }

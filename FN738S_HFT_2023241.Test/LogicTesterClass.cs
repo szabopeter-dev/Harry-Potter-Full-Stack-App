@@ -2,6 +2,8 @@
 using FN738S_HFT_2023241.Logic.Interfaces;
 using FN738S_HFT_2023241.Models;
 using FN738S_HFT_2023241.Repository.Interfaces;
+using Microsoft.EntityFrameworkCore.Diagnostics;
+using Microsoft.EntityFrameworkCore.Query.Internal;
 using Moq;
 using NUnit.Framework;
 using System;
@@ -10,6 +12,8 @@ using System.Linq;
 using static FN738S_HFT_2023241.Models.House;
 using static FN738S_HFT_2023241.Models.Student;
 using static FN738S_HFT_2023241.Models.Subject;
+using static FN738S_HFT_2023241.Models.Subject_teacher;
+using static FN738S_HFT_2023241.Models.Teacher;
 
 namespace FN738S_HFT_2023241.Test
 {
@@ -85,6 +89,7 @@ namespace FN738S_HFT_2023241.Test
             Assert.AreEqual(result, house);
         }
     }
+    [TestFixture]
     public class StudentTesterClass
     {
         Studentlogic studentlogic;
@@ -138,7 +143,7 @@ namespace FN738S_HFT_2023241.Test
         
        
     }
-
+    [TestFixture]
     public class SubjectTesterClass
     {
         Subjectlogic subjectlogic;
@@ -169,6 +174,82 @@ namespace FN738S_HFT_2023241.Test
                 new WhoTeachesTheSubject() {teachername = "Wizard Amalia", subjectname = "Potions"},
             };
             Assert.AreEqual(expected, actual);
+        }
+        [Test]
+        public void CreateSubjectWithNotConfirmedName()
+        {
+            // subject_name > 5 - confirmed
+            var acceptedsubject = new Subject() { Subject_Name = "Old Wizards" };
+            subjectlogic.Create(acceptedsubject);
+            mockSubjectrepository.Verify(m => m.Create(acceptedsubject), Times.Once);
+        }
+    }
+    [TestFixture]
+    public class TeacherTesterClass
+    {
+        Teacherlogic teacherlogic;
+        Mock<IRepository<Teacher>> mockTeacherRepo;
+
+        [SetUp]
+        public void Init()
+        {
+            mockTeacherRepo = new Mock<IRepository<Teacher>>();
+            mockTeacherRepo.Setup(m => m.ReadAll()).Returns(new List<Teacher>()
+            { 
+                new Teacher(){Id = 1,House_Id= 1,  Name = "Hagrid", Animagus = true },
+                new Teacher(){Id = 2,House_Id= 2,  Name = "Percelus Piton", Animagus = false },
+                new Teacher(){Id = 3,House_Id= 4,  Name = "Lupin Celsa", Animagus = true },
+                new Teacher(){Id = 4,House_Id= 1,  Name = "Lomboton Jake", Animagus = false }
+
+            }.AsQueryable());
+            teacherlogic = new Teacherlogic(mockTeacherRepo.Object);
+        }
+        [Test]
+        public void GetAnimagusTeachers()
+        {
+            var actual = teacherlogic.GetAnimagus();
+            var expected = new List<WhoIsAnAnimagus>()
+            {
+            new WhoIsAnAnimagus() {teachername = "Hagrid"},
+            new WhoIsAnAnimagus() {teachername = "Lupin Celsa"},
+            };
+            Assert.AreEqual(actual, expected);
+        }
+    }
+    [TestFixture]
+    public class SubjectTeacherTester
+    {
+        Subject_teacherlogic subject_Teacherlogic;
+        Mock<IRepository<Subject_teacher>> mockSubjectTeacherRepo;
+
+        [SetUp]
+        public void Init()
+        {
+            mockSubjectTeacherRepo = new Mock<IRepository<Subject_teacher>>();
+            mockSubjectTeacherRepo.Setup(m => m.ReadAll()).Returns(new List<Subject_teacher>()
+            {
+                new Subject_teacher() {Subject_teacher_id = 1, Teacher_ID = 1, Subject_ID = 1, Year_taught = 2002},
+                new Subject_teacher() {Subject_teacher_id = 2, Teacher_ID = 2, Subject_ID = 2, Year_taught = 2000},
+                new Subject_teacher() {Subject_teacher_id = 3, Teacher_ID = 3, Subject_ID = 3, Year_taught = 1998},
+                new Subject_teacher() {Subject_teacher_id = 4, Teacher_ID = 4, Subject_ID = 4, Year_taught = 2002},
+            }.AsQueryable());
+            subject_Teacherlogic = new Subject_teacherlogic(mockSubjectTeacherRepo.Object);
+        }
+
+        [Test]
+        public void CreateSubject_teacherWithLowYearTaught()
+        {
+            //year taught > 1500 - confirmed
+            var lowyeartaught = new Subject_teacher() { Subject_teacher_id = 40, Year_taught = 1333 };
+            try
+            {
+                subject_Teacherlogic.Create(lowyeartaught);
+            }
+            catch 
+            { 
+            }
+            mockSubjectTeacherRepo.Verify(m => m.Create(lowyeartaught), Times.Never);
+
         }
     }
 }

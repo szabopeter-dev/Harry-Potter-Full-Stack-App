@@ -41,7 +41,6 @@ namespace FN738S_HFT_2023241.Models
             {
             }
             public string teachername { get; set; }
-
             public override string ToString()
             {
                 return $"{teachername}";
@@ -57,8 +56,6 @@ namespace FN738S_HFT_2023241.Models
                 else
                 {
                     return this.teachername == b.teachername;
-
-
 
                 }
             }
