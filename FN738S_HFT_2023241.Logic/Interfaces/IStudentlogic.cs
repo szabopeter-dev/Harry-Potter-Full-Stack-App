@@ -13,6 +13,6 @@ namespace FN738S_HFT_2023241.Logic.Interfaces
         Student Read(int id);
         IQueryable<Student> ReadAll();
         void Update(Student item);
-        public IEnumerable<WhoIsAQuidditchPlayer> GetQuidditchPlayers();
+      
     }
 }

@@ -29,13 +29,17 @@ namespace FN738S_HFT_2023241.Test
             mockHouseRepo = new Mock<IRepository<House>>();
             mockHouseRepo.Setup(m => m.ReadAll()).Returns(new List<House>()
             {
-
+                //Gryffindor
                 new House(){ID = 1, House_name = Models.Enums.HouseType.Gryffindor, Founder_name = "Godric Gryffindor", House_points = 100,
-                Students = new List<Student>(){new Student() {Name = "Harry Potter"}, new Student() { Name = "Hermione Granger"} } },
+                Students = new List<Student>(){new Student() {Name = "Harry Potter", Quidditch_player = false}, new Student() { Name = "Hermione Granger", Quidditch_player = false} } },
 
+                //Hufflepuff
+                new House(){ID = 2, House_name = Models.Enums.HouseType.Hufflepuff, Founder_name = "Helga Hufflepuff", House_points = 110,
+                Students = new List<Student>(){new Student() {Name = "Maximus Brutalismus", Quidditch_player = true}, new Student() { Name = "Crying Hernald", Quidditch_player = false}} },
                 
-                new House(){ID = 2, House_name = Models.Enums.HouseType.Hufflepuff, Founder_name = "Helga Hufflepuff", House_points = 110},
-                new House(){ID = 3, House_name = Models.Enums.HouseType.Ravenclaw, Founder_name = "Rowena Ravenclaw", House_points = 120},
+                //Ravenclaw
+                new House(){ID = 3, House_name = Models.Enums.HouseType.Ravenclaw, Founder_name = "Rowena Ravenclaw", House_points = 120,
+                Students = new List<Student>(){new Student() {Name = "Padma Patil", Quidditch_player = false}, new Student() { Name = "Marco Aquini", Quidditch_player = false} } },
 
 
 
@@ -43,6 +47,17 @@ namespace FN738S_HFT_2023241.Test
             houselogic = new Houselogic(mockHouseRepo.Object);
 
 
+        }
+        [Test]
+        public void GetQuidditchPlayersFromTheHouse()
+        {
+            var actual = houselogic.GetQuidditchPlayers(Models.Enums.HouseType.Hufflepuff);
+            var expected = new List<WhoIsAQuidditchPlayerInTheHouse>()
+            { 
+                new WhoIsAQuidditchPlayerInTheHouse() {studentname = "Maximus Brutalismus"}
+            };
+            Assert.AreEqual(expected, actual);
+            ;
         }
 
         [Test]
@@ -127,18 +142,7 @@ namespace FN738S_HFT_2023241.Test
             mockstudentRepository.Verify(m => m.Create(shortnamedstudent), Times.Never);
         }
        
-        [Test]
-        public void GetQuidditchPlayerStudents()
-        {
-            var actual = studentlogic.GetQuidditchPlayers();
-            var expected = new List<WhoIsAQuidditchPlayer>()
-            {
-                new WhoIsAQuidditchPlayer() {studentname = "Harry Potter"},
-                new WhoIsAQuidditchPlayer() {studentname = "Draco Melfoy"},
-                new WhoIsAQuidditchPlayer() {studentname = "Cedric Digory"},
-            };
-            Assert.AreEqual(expected, actual);
-        }
+       
 
         
        
@@ -156,12 +160,22 @@ namespace FN738S_HFT_2023241.Test
             mockSubjectrepository.Setup(m => m.ReadAll()).Returns(new List<Subject>()
             { 
                 new Subject(){Id = 1, Subject_Name= "Potions", Teachers = 
-                new List<Teacher>(){ new Teacher() { Id = 1, Name = "Silvanius Petigruw", House_Id = 1, Animagus= true }, 
+                new List<Teacher>(){ new Teacher() { Id = 1, Name = "Silvanius Petigruw", House_Id = 1, Animagus= true},
                     new Teacher() {Id=2, Name="Jazminus Potter", House_Id= 2, Animagus = false }, 
                     new Teacher() {Id = 3, Name="Wizard Amalia", House_Id=2, Animagus=false} } },
                 new Subject(){Id = 2, Subject_Name="Dark Arts"}
             }.AsQueryable());
             subjectlogic = new Subjectlogic(mockSubjectrepository.Object);
+        }
+        [Test]
+        public void GetAnimagusTeacherFromASubject()
+        {
+            var actual = subjectlogic.GetAnimagusTeachersFromASubjects("Potions");
+            var expected = new List<WhoIsAnAnimagus>()
+            {
+                new WhoIsAnAnimagus() {teachername = "Silvanius Petigruw", subjectname="Potions"}
+            };
+            Assert.AreEqual(expected, actual);
         }
         [Test]
         public void GetSubjectTeachers()
@@ -176,7 +190,7 @@ namespace FN738S_HFT_2023241.Test
             Assert.AreEqual(expected, actual);
         }
         [Test]
-        public void CreateSubjectWithNotConfirmedName()
+        public void CreateSubjectWithConfirmedName()
         {
             // subject_name > 5 - confirmed
             var acceptedsubject = new Subject() { Subject_Name = "Old Wizards" };
@@ -204,17 +218,7 @@ namespace FN738S_HFT_2023241.Test
             }.AsQueryable());
             teacherlogic = new Teacherlogic(mockTeacherRepo.Object);
         }
-        [Test]
-        public void GetAnimagusTeachers()
-        {
-            var actual = teacherlogic.GetAnimagus();
-            var expected = new List<WhoIsAnAnimagus>()
-            {
-            new WhoIsAnAnimagus() {teachername = "Hagrid"},
-            new WhoIsAnAnimagus() {teachername = "Lupin Celsa"},
-            };
-            Assert.AreEqual(actual, expected);
-        }
+       
     }
     [TestFixture]
     public class SubjectTeacherTester

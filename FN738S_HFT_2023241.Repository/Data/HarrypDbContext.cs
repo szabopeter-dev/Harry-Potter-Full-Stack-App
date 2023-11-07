@@ -66,13 +66,13 @@ namespace FN738S_HFT_2023241.Repository.Data
             .OnDelete(DeleteBehavior.Cascade));
             modelBuilder.Entity<Teacher>().HasData(new Teacher[]
             {
-                new Teacher(1, 2, "Severus Snape", false ),
-                new Teacher(2, 3, "Silvanus Kettleburn", false),
-                new Teacher(3, 4, "Dolores Umbridge", false),
-                new Teacher(4, 1, "Elspeth MacGillony", true),
-                new Teacher(5, 1, "Albus Dumbledore", false),
-                new Teacher(6, 3,"Pomona Sprout", false),
-                new Teacher(7, 1, "Remus Lupin", true)
+                new Teacher(1, 2, "Severus Snape", false, false ),
+                new Teacher(2, 3, "Silvanus Kettleburn", false, true),
+                new Teacher(3, 4, "Dolores Umbridge", false, true),
+                new Teacher(4, 1, "Elspeth MacGillony", true, false),
+                new Teacher(5, 1, "Albus Dumbledore", false, false),
+                new Teacher(6, 3,"Pomona Sprout", false, true),
+                new Teacher(7, 1, "Remus Lupin", true, true)
 
             });
             modelBuilder.Entity<Subject>()
@@ -100,7 +100,8 @@ namespace FN738S_HFT_2023241.Repository.Data
               new Subject_teacher(4, 2, 3, 2000),
               new Subject_teacher(5, 6, 1, 2003),
               new Subject_teacher(6, 3, 1, 2000),
-              new Subject_teacher(7, 4, 2, 1983)
+              new Subject_teacher(7, 4, 2, 1983),
+              new Subject_teacher(8, 4, 1, 1988)
 
            });
             modelBuilder.Entity<Subject_teacher>()

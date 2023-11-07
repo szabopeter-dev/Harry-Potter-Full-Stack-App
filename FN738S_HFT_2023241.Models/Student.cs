@@ -30,7 +30,6 @@ namespace FN738S_HFT_2023241.Models
         public int Id { get; set; }
         [ForeignKey(nameof(House))]
         public int HouseId { get; set; }
-
         [StringLength(100)]
         public string Name { get; set; }
         public bool Quidditch_player { get; set; }
@@ -38,39 +37,6 @@ namespace FN738S_HFT_2023241.Models
         [NotMapped]
         public virtual House House { get; set; }
 
-        public class WhoIsAQuidditchPlayer
-        {
-            public WhoIsAQuidditchPlayer()
-            {
-            }
-            public string studentname { get; set; }
-          
-            public override string ToString()
-            {
-                return $"{studentname}";
-            }
-
-            public override bool Equals(object obj)
-            {
-                WhoIsAQuidditchPlayer b = obj as WhoIsAQuidditchPlayer;
-                if (b == null)
-                {
-                    return false;
-                }
-                else
-                {
-                    return this.studentname == b.studentname;
-
-
-
-                }
-            }
-
-            public override int GetHashCode()
-            {
-                return HashCode.Combine(this.studentname);
-            }
-
-        }
+        
     }
 }

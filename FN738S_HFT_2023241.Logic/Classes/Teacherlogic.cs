@@ -60,18 +60,8 @@ namespace FN738S_HFT_2023241.Logic.Classes
         {
             repo.Update(item);
         }
-
-        public IEnumerable<WhoIsAnAnimagus> GetAnimagus()
-        {
-            return ReadAll()
-            .Where(teacher => teacher.Animagus)
-            .Select(teacher => new WhoIsAnAnimagus
-            {
-                teachername = teacher.Name
-
-            });
-            
-        }
+       
+       
 
         
     }

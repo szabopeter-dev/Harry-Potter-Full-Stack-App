@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static FN738S_HFT_2023241.Models.House;
 using static FN738S_HFT_2023241.Models.Subject;
+using static FN738S_HFT_2023241.Models.Teacher;
 
 namespace FN738S_HFT_2023241.Logic.Classes
 {
@@ -78,6 +79,19 @@ namespace FN738S_HFT_2023241.Logic.Classes
                 
                 
             });
+        }
+        public IEnumerable<WhoIsAnAnimagus> GetAnimagusTeachersFromASubjects(string subjectname)
+        {
+            return ReadAll()
+                .Where(_ => _.Subject_Name.Equals(subjectname))
+            .SelectMany(_ => _.Teachers)
+            .Where(_ => _.Animagus.Equals(true))
+            .Select(_ => new WhoIsAnAnimagus()
+            {
+                teachername = _.Name,
+                subjectname = subjectname
+            });
+
         }
     }
 }

@@ -15,13 +15,14 @@ namespace FN738S_HFT_2023241.Models
             Subjects = new HashSet<Subject>();
         }
 
-        public Teacher(int id, int houseid, string name, bool animagus)
+        public Teacher(int id, int houseid, string name, bool animagus, bool isretired)
         {
             Id = id;
             Name = name;
             House_Id = houseid;
             Subjects = new HashSet<Subject>();
             Animagus = animagus;
+            IsRetired = isretired;
         }
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -32,6 +33,7 @@ namespace FN738S_HFT_2023241.Models
         [MaxLength(100)]
         public string Name { get; set; }
         public bool Animagus { get; set; }
+        public bool IsRetired { get; set; }
         [NotMapped]
         public virtual House House { get; set; }
         [NotMapped]
@@ -45,9 +47,10 @@ namespace FN738S_HFT_2023241.Models
             {
             }
             public string teachername { get; set; }
+            public string subjectname { get; set; }
             public override string ToString()
             {
-                return $"{teachername}";
+                return $"Animagus: {teachername} \t {subjectname} ";
             }
 
             public override bool Equals(object obj)
@@ -59,16 +62,18 @@ namespace FN738S_HFT_2023241.Models
                 }
                 else
                 {
-                    return this.teachername == b.teachername;
+                    return this.teachername == b.teachername
+                        && this.subjectname == b.subjectname;
 
                 }
             }
 
             public override int GetHashCode()
             {
-                return HashCode.Combine(this.teachername);
+                return HashCode.Combine(this.teachername, this.subjectname);
             }
 
         }
+        
     }
 }

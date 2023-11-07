@@ -10,18 +10,18 @@ namespace FN738S_HFT_2023241.Client
     {
         static void Main(string[] args)
         {
-            //testing logics linq non crud methods in main
+            ////testing logics linq non crud methods in main
             //var ctx = new HarrypDbContext();
 
-            ////var studentrepo = new StudentRepository(ctx);
-            ////var logic = new Studentlogic(studentrepo);
+            //var studentrepo = new StudentRepository(ctx);
+            //var logic = new Studentlogic(studentrepo);
 
-            ////var teacherrepo = new TeacherRepository(ctx);
-            ////var teacherlogic = new Teacherlogic(teacherrepo);
-            //Console.WriteLine(  );
+            //var teacherrepo = new TeacherRepository(ctx);
+            //var teacherlogic = new Teacherlogic(teacherrepo);
+            
 
-            ////var houserepo = new HouseRepository(ctx);
-            ////var houselogic = new Houselogic(houserepo);
+            //var houserepo = new HouseRepository(ctx);
+            //var houselogic = new Houselogic(houserepo);
 
             //var subjectrepo = new SubjectRepository(ctx);
             //var subjectlogic = new Subjectlogic(subjectrepo);
@@ -33,16 +33,15 @@ namespace FN738S_HFT_2023241.Client
             //var nc1 = houselogic.GetStudentFromGryffindor(Models.Enums.HouseType.Gryffindor);
 
             //var nc2 = subject_teacherlogic.GetTeachersByYearTaught(2000);
+
+            //var nc3 = subjectlogic.GetTeacherFromSubject("Defence Against the Dark Arts");
+
+            //var nc4 = houselogic.GetQuidditchPlayers(Models.Enums.HouseType.Slytherin);
+
+            //var nc5 = subjectlogic.GetAnimagusTeachersFromASubjects("Defence Against the Dark Arts");
+
+            //var nc6 = houselogic.GetRetiredTeachersFromHouse(Models.Enums.HouseType.Gryffindor);
             
-            //var nc3 = logic.GetQuidditchPlayers();
-
-            //var nc4 = teacherlogic.GetAnimagus();
-
-            //var nc5 = subjectlogic.GetTeacherFromSubject("Defence Against the Dark Arts");
-
-
-            
-
 
         }
     }

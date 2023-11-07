@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static FN738S_HFT_2023241.Models.House;
+using static FN738S_HFT_2023241.Models.Student;
+using static FN738S_HFT_2023241.Models.Subject;
 
 namespace FN738S_HFT_2023241.Logic.Classes
 {
@@ -61,6 +63,36 @@ namespace FN738S_HFT_2023241.Logic.Classes
 
 
 
+        public IEnumerable<WhoIsAQuidditchPlayerInTheHouse> GetQuidditchPlayers(HouseType name)
+        {
+
+            return ReadAll()
+               .Where(_ => _.House_name.Equals(name))
+               .SelectMany(_ => _.Students)
+               .Where(_ => _.Quidditch_player.Equals(true))
+               .Select(_ => new WhoIsAQuidditchPlayerInTheHouse()
+               {
+                   studentname = _.Name
+               }) ;
+
+        }
+
+        //get retired housetyped teachers
+
+       public IEnumerable<WhoIsARetiredTeacherOfHouse> GetRetiredTeachersFromHouse(HouseType name)
+        {
+            return ReadAll()
+                .Where(_ => _.House_name.Equals(name))
+                .SelectMany(_ => _.Teachers)
+                .Where(_ => _.IsRetired.Equals(true))
+                .Select(_ => new WhoIsARetiredTeacherOfHouse()
+                {
+                    teachername = _.Name
+                });
+        }
+       
+
+
         public IEnumerable<WhoIsInGryffindor> GetStudentFromGryffindor(HouseType name)
         {
 
@@ -72,6 +104,8 @@ namespace FN738S_HFT_2023241.Logic.Classes
                 studentname = _.Name
             });
         }
+
+        
       
     }
 }

@@ -14,5 +14,7 @@ namespace FN738S_HFT_2023241.Logic.Interfaces
         IQueryable<House> ReadAll();
         void Update(House item);
         public IEnumerable<WhoIsInGryffindor> GetStudentFromGryffindor(HouseType name);
+        public IEnumerable<WhoIsAQuidditchPlayerInTheHouse> GetQuidditchPlayers(HouseType name);
+        public IEnumerable<WhoIsARetiredTeacherOfHouse> GetRetiredTeachersFromHouse(HouseType name);
     }
 }

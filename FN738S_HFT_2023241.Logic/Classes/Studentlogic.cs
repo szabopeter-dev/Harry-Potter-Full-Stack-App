@@ -60,19 +60,6 @@ namespace FN738S_HFT_2023241.Logic.Classes
         {
             repo.Update(item);
         }
-        public IEnumerable<WhoIsAQuidditchPlayer> GetQuidditchPlayers()
-        {
-
-            return ReadAll()
-         .Where(student => student.Quidditch_player)
-         .Select(student => new WhoIsAQuidditchPlayer
-         {
-             studentname = student.Name
-         });
-
-        }
-
-       
-
+ 
     }
 }

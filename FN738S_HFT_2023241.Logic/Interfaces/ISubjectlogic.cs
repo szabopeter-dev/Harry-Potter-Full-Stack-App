@@ -3,6 +3,7 @@ using FN738S_HFT_2023241.Repository.Data;
 using System.Collections.Generic;
 using System.Linq;
 using static FN738S_HFT_2023241.Models.Subject;
+using static FN738S_HFT_2023241.Models.Teacher;
 
 namespace FN738S_HFT_2023241.Logic.Interfaces
 {
@@ -14,5 +15,6 @@ namespace FN738S_HFT_2023241.Logic.Interfaces
         IQueryable<Subject> ReadAll();
         void Update(Subject item);
         public IEnumerable<WhoTeachesTheSubject> GetTeacherFromSubject(string subjectname);
+        public IEnumerable<WhoIsAnAnimagus> GetAnimagusTeachersFromASubjects(string subjectname);
     }
 }
