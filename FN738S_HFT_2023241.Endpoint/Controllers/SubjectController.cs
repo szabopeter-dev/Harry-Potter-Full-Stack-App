@@ -1,4 +1,5 @@
 ﻿using FN738S_HFT_2023241.Logic.Classes;
+using FN738S_HFT_2023241.Logic.Interfaces;
 using FN738S_HFT_2023241.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -11,9 +12,9 @@ namespace FN738S_HFT_2023241.Endpoint.Controllers
     [ApiController]
     public class SubjectController : ControllerBase
     {
-        Subjectlogic logic;
+        ISubjectlogic logic;
 
-        public SubjectController(Subjectlogic logic)
+        public SubjectController(ISubjectlogic logic)
         {
             this.logic = logic;
         }

@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.Json.Serialization;
 
 namespace FN738S_HFT_2023241.Models
 {
@@ -35,6 +36,7 @@ namespace FN738S_HFT_2023241.Models
         public bool Quidditch_player { get; set; }
 
         [NotMapped]
+        [JsonIgnore]
         public virtual House House { get; set; }
 
         

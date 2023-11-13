@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace FN738S_HFT_2023241.Models
@@ -35,10 +36,12 @@ namespace FN738S_HFT_2023241.Models
         public bool Animagus { get; set; }
         public bool IsRetired { get; set; }
         [NotMapped]
+        [JsonIgnore]
         public virtual House House { get; set; }
         [NotMapped]
         public virtual ICollection<Subject> Subjects { get; set; }
         [NotMapped]
+        [JsonIgnore]
         public virtual ICollection<Subject_teacher> Subject_Teachers { get; }
 
         public class WhoIsAnAnimagus

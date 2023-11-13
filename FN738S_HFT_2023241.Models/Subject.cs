@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace FN738S_HFT_2023241.Models
@@ -28,8 +29,10 @@ namespace FN738S_HFT_2023241.Models
         [MaxLength(100)]
         public string Subject_Name { get; set; }
         [NotMapped]
+        [JsonIgnore]
         public virtual ICollection<Teacher> Teachers { get; set; }
         [NotMapped]
+        [JsonIgnore]
         public virtual ICollection<Subject_teacher> Subject_Teachers { get; set; }
 
         public class WhoTeachesTheSubject
