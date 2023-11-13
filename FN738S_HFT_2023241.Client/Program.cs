@@ -1,15 +1,15 @@
-﻿using FN738S_HFT_2023241.Logic.Classes;
-using FN738S_HFT_2023241.Models;
-using FN738S_HFT_2023241.Repository.Data;
-using FN738S_HFT_2023241.Repository.ModelRepositories;
+﻿using FN738S_HFT_2023241.Models;
 using System;
 
 namespace FN738S_HFT_2023241.Client
 {
     internal class Program
     {
+        static RestService rest;
         static void Main(string[] args)
         {
+            rest = new RestService("http://localhost:3736/", "Hogwarts");
+
             ////testing logics linq non crud methods in main
             //var ctx = new HarrypDbContext();
 
@@ -18,7 +18,7 @@ namespace FN738S_HFT_2023241.Client
 
             //var teacherrepo = new TeacherRepository(ctx);
             //var teacherlogic = new Teacherlogic(teacherrepo);
-            
+
 
             //var houserepo = new HouseRepository(ctx);
             //var houselogic = new Houselogic(houserepo);
@@ -41,7 +41,7 @@ namespace FN738S_HFT_2023241.Client
             //var nc5 = subjectlogic.GetAnimagusTeachersFromASubjects("Defence Against the Dark Arts");
 
             //var nc6 = houselogic.GetRetiredTeachersFromHouse(Models.Enums.HouseType.Gryffindor);
-            
+
             
 
         }

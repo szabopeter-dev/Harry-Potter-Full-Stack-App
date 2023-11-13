@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FN738S_HFT_2023241.Models.Enums
 {
-    public enum HouseType : byte
+    public enum HouseType
     {
         Gryffindor,
         Hufflepuff,
