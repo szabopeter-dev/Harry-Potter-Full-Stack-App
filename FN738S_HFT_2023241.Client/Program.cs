@@ -42,6 +42,7 @@ namespace FN738S_HFT_2023241.Client
 
             //var nc6 = houselogic.GetRetiredTeachersFromHouse(Models.Enums.HouseType.Gryffindor);
             
+            
 
         }
     }

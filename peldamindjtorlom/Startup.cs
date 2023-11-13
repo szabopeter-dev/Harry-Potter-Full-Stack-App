@@ -1,9 +1,3 @@
-using FN738S_HFT_2023241.Logic.Classes;
-using FN738S_HFT_2023241.Logic.Interfaces;
-using FN738S_HFT_2023241.Models;
-using FN738S_HFT_2023241.Repository.Data;
-using FN738S_HFT_2023241.Repository.Interfaces;
-using FN738S_HFT_2023241.Repository.ModelRepositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -14,13 +8,10 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
-using System.Data;
-using System.IO;
 using System.Linq;
-using System.Numerics;
 using System.Threading.Tasks;
 
-namespace FN738S_HFT_2023241.Endpoint
+namespace peldamindjtorlom
 {
     public class Startup
     {
@@ -34,24 +25,11 @@ namespace FN738S_HFT_2023241.Endpoint
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<HarrypDbContext>();
-
-            services.AddTransient<IRepository<House>, HouseRepository>();
-            services.AddTransient<IRepository<Student>, StudentRepository>();
-            services.AddTransient<IRepository<Subject>, SubjectRepository>();
-            services.AddTransient<IRepository<Subject_teacher>, Subject_teacherRepository>();
-            services.AddTransient<IRepository<Teacher>, TeacherRepository>();
-
-            services.AddTransient<IHouselogic, Houselogic>();
-            services.AddTransient<IStudentlogic, Studentlogic>();
-            services.AddTransient<ISubjectlogic, Subjectlogic>();
-            services.AddTransient<ISubject_teacherlogic, Subject_teacherlogic>();
-            services.AddTransient<ITeacherlogic, Teacherlogic>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "FN738S_HFT_2023241.Endpoint", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "peldamindjtorlom", Version = "v1" });
             });
         }
 
@@ -62,7 +40,7 @@ namespace FN738S_HFT_2023241.Endpoint
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "FN738S_HFT_2023241.Endpoint v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "peldamindjtorlom v1"));
             }
 
             app.UseRouting();
