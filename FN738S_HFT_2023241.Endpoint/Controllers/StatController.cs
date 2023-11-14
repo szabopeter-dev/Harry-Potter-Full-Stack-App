@@ -1,5 +1,4 @@
 ﻿using FN738S_HFT_2023241.Logic.Interfaces;
-using FN738S_HFT_2023241.Models.Enums;
 using Microsoft.AspNetCore.Mvc;
 using static FN738S_HFT_2023241.Models.House;
 using System.Collections.Generic;
@@ -27,19 +26,19 @@ namespace FN738S_HFT_2023241.Endpoint.Controllers
         }
 
         [HttpGet("{name}")]
-        public IEnumerable<WhoIsAQuidditchPlayerInTheHouse> GetQuidditchPlayers(HouseType name)
+        public IEnumerable<WhoIsAQuidditchPlayerInTheHouse> GetQuidditchPlayers(string name)
         {
             return this.houselogic.GetQuidditchPlayers(name);
         }
 
         [HttpGet("{name}")]
-        public IEnumerable<WhoIsARetiredTeacherOfHouse> GetRetiredTeachersFromHouse(HouseType name)
+        public IEnumerable<WhoIsARetiredTeacherOfHouse> GetRetiredTeachersFromHouse(string name)
         {
             return this.houselogic.GetRetiredTeachersFromHouse(name);
         }
 
         [HttpGet("{name}")]
-        public IEnumerable<WhoIsInGryffindor> GetStudentFromGryffindor(HouseType name)
+        public IEnumerable<WhoIsInGryffindor> GetStudentFromGryffindor(string name)
         {
             return this.houselogic.GetStudentFromGryffindor(name);
         }

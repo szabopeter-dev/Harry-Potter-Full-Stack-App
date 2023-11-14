@@ -1,5 +1,4 @@
-﻿using FN738S_HFT_2023241.Models.Enums;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;

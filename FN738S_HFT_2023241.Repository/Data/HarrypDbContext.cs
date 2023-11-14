@@ -54,10 +54,10 @@ namespace FN738S_HFT_2023241.Repository.Data
             });
             modelBuilder.Entity<House>().HasData(new House[]
             {
-                new House(1, Models.Enums.HouseType.Gryffindor, "Godric Gryffindor", 350),
-                new House(2, Models.Enums.HouseType.Slytherin, "Salazar Slytherin", 240),
-                new House(3, Models.Enums.HouseType.Hufflepuff, "Helga Hufflepuff", 230),
-                new House(4, Models.Enums.HouseType.Ravenclaw, "Rowena Ravenclaw", 101)
+                new House(1, "Gryffindor", "Godric Gryffindor", 350),
+                new House(2, "Slytherin", "Salazar Slytherin", 240),
+                new House(3, "Hufflepuff", "Helga Hufflepuff", 230),
+                new House(4, "Ravenclaw", "Rowena Ravenclaw", 101)
             });
             modelBuilder.Entity<Teacher>(teacher => teacher
             .HasOne(teacher => teacher.House)

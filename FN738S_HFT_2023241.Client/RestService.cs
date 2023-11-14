@@ -86,7 +86,22 @@ namespace FN738S_HFT_2023241.Client
             }
             return item;
         }
-
+        //sajat
+        public List<T> Get<T>(string text, string endpoint)
+        {
+            List<T> items = new List<T>();
+            HttpResponseMessage response = client.GetAsync(endpoint + "/" + text).GetAwaiter().GetResult();
+            if (response.IsSuccessStatusCode)
+            {
+                items = response.Content.ReadAsAsync<List<T>>().GetAwaiter().GetResult();
+            }
+            else
+            {
+                var error = response.Content.ReadAsAsync<RestExceptionInfo>().GetAwaiter().GetResult();
+                throw new ArgumentException(error.Msg);
+            }
+            return items;
+        }
         public T Get<T>(int id, string endpoint)
         {
             T item = default(T);

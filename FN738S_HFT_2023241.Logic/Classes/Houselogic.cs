@@ -1,6 +1,5 @@
 ﻿using FN738S_HFT_2023241.Logic.Interfaces;
 using FN738S_HFT_2023241.Models;
-using FN738S_HFT_2023241.Models.Enums;
 using FN738S_HFT_2023241.Repository.Data;
 using FN738S_HFT_2023241.Repository.Interfaces;
 using System;
@@ -63,7 +62,7 @@ namespace FN738S_HFT_2023241.Logic.Classes
 
 
 
-        public IEnumerable<WhoIsAQuidditchPlayerInTheHouse> GetQuidditchPlayers(HouseType name)
+        public IEnumerable<WhoIsAQuidditchPlayerInTheHouse> GetQuidditchPlayers(string name)
         {
 
             return ReadAll()
@@ -79,7 +78,7 @@ namespace FN738S_HFT_2023241.Logic.Classes
 
         //get retired housetyped teachers
 
-       public IEnumerable<WhoIsARetiredTeacherOfHouse> GetRetiredTeachersFromHouse(HouseType name)
+       public IEnumerable<WhoIsARetiredTeacherOfHouse> GetRetiredTeachersFromHouse(string name)
         {
             return ReadAll()
                 .Where(_ => _.House_name.Equals(name))
@@ -93,7 +92,7 @@ namespace FN738S_HFT_2023241.Logic.Classes
        
 
 
-        public IEnumerable<WhoIsInGryffindor> GetStudentFromGryffindor(HouseType name)
+        public IEnumerable<WhoIsInGryffindor> GetStudentFromGryffindor(string name)
         {
 
             return ReadAll()

@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Numerics;
+using static FN738S_HFT_2023241.Models.Subject;
+using static FN738S_HFT_2023241.Models.Teacher;
 
 namespace FN738S_HFT_2023241.Client
 {
@@ -40,6 +42,14 @@ namespace FN738S_HFT_2023241.Client
                 Console.Write("Enter Subject Name: ");
                 string name = Console.ReadLine();
                 rest.Post(new Subject() { Subject_Name = name }, "subject");
+            }
+            else if (entity == "House")
+            {
+                Console.Write("Enter House Name: ");
+                string name = Console.ReadLine();
+                Console.Write("Enter house point: ");
+                int hpoint = int.Parse(Console.ReadLine());
+                rest.Post(new House() {House_name = name,  House_points = hpoint }, "house");
             }
         }
         static void List(string entity)
@@ -82,7 +92,14 @@ namespace FN738S_HFT_2023241.Client
                     Console.WriteLine(item.Id+":"+item.Subject_Name);
                 }
             }
-
+            else if (entity == "House")
+            {
+                List<House> Houses = rest.Get<House>("house");
+                foreach (var item in Houses)
+                {
+                    Console.WriteLine(item.ID+":"+item.House_name+": "+item.House_points);
+                }
+            }
             Console.WriteLine("\nPress Enter to continue...");
             Console.ReadLine();
         }
@@ -141,6 +158,31 @@ namespace FN738S_HFT_2023241.Client
             }
 
         }
+        static void GetTeacherFromSubject()
+        {
+            Console.Write("Enter a Subject's name: ");
+            string subjectname = Console.ReadLine();
+            List<WhoTeachesTheSubject> list = rest.Get<WhoTeachesTheSubject>(subjectname, "Stat/GetTeacherFromSubject");
+            foreach (var item in list)
+            {
+                Console.WriteLine(item.ToString());
+            }
+            Console.WriteLine("\nPress Enter to continue...");
+            Console.ReadLine();
+        }
+
+        //static void GetAnimagusTeachersFromASubjects()
+        //{
+        //    Console.Write("Enter a Subject's name: ");
+        //    string subjectname = Console.ReadLine();
+        //    List<WhoIsAnAnimagus> list = rest.Get<WhoIsAnAnimagus>(subjectname,"Stat/WhoIsAnAnimagus");
+        //    foreach (var item in list)
+        //    {
+        //        Console.WriteLine(item.ToString());
+        //    }
+        //    Console.WriteLine("\nPress Enter to continue...");
+        //    Console.ReadLine();
+        //}
 
 
         static void Main(string[] args)
@@ -166,11 +208,19 @@ namespace FN738S_HFT_2023241.Client
                 .Add("Create", () => Create("Subject"))
                 .Add("Delete", () => Delete("Subject"))
                 .Add("Update", () => Update("Subject"))
+                .Add("GetTeacherFromSubject", () => GetTeacherFromSubject())
+                //.Add("GetAnimagusTeachersFromASubjects", () => GetAnimagusTeachersFromASubjects())
+                .Add("Exit", ConsoleMenu.Close);
+
+            var houseSubMenu = new ConsoleMenu(args, level: 1)
+                .Add("Create", () => Create("House"))
+                .Add("List", () => List("House"))
                 .Add("Exit", ConsoleMenu.Close);
 
 
             var menu = new ConsoleMenu(args, level: 0)
                 .Add("Students", () => studentSubMenu.Show())
+                .Add("Houses", () => houseSubMenu.Show())
                 //tobbi 
                 .Add("Teachers", () => teacherSubMenu.Show())
                 .Add("Subjects", () => subjectSubMenu.Show())

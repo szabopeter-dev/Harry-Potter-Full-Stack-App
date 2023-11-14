@@ -1,6 +1,5 @@
 ﻿using FN738S_HFT_2023241.Logic.Interfaces;
 using FN738S_HFT_2023241.Models;
-using FN738S_HFT_2023241.Models.Enums;
 using FN738S_HFT_2023241.Repository.Data;
 using FN738S_HFT_2023241.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;

@@ -30,15 +30,15 @@ namespace FN738S_HFT_2023241.Test
             mockHouseRepo.Setup(m => m.ReadAll()).Returns(new List<House>()
             {
                 //Gryffindor
-                new House(){ID = 1, House_name = Models.Enums.HouseType.Gryffindor, Founder_name = "Godric Gryffindor", House_points = 100,
+                new House(){ID = 1, House_name = "Gryffindor", Founder_name = "Godric Gryffindor", House_points = 100,
                 Students = new List<Student>(){new Student() {Name = "Harry Potter", Quidditch_player = false}, new Student() { Name = "Hermione Granger", Quidditch_player = false} } },
 
                 //Hufflepuff
-                new House(){ID = 2, House_name = Models.Enums.HouseType.Hufflepuff, Founder_name = "Helga Hufflepuff", House_points = 110,
+                new House(){ID = 2, House_name = "Hufflepuff", Founder_name = "Helga Hufflepuff", House_points = 110,
                 Students = new List<Student>(){new Student() {Name = "Maximus Brutalismus", Quidditch_player = true}, new Student() { Name = "Crying Hernald", Quidditch_player = false}} },
                 
                 //Ravenclaw
-                new House(){ID = 3, House_name = Models.Enums.HouseType.Ravenclaw, Founder_name = "Rowena Ravenclaw", House_points = 120,
+                new House(){ID = 3, House_name = "Ravenclaw", Founder_name = "Rowena Ravenclaw", House_points = 120,
                 Students = new List<Student>(){new Student() {Name = "Padma Patil", Quidditch_player = false}, new Student() { Name = "Marco Aquini", Quidditch_player = false} } },
 
 
@@ -51,7 +51,7 @@ namespace FN738S_HFT_2023241.Test
         [Test]
         public void GetQuidditchPlayersFromTheHouse()
         {
-            var actual = houselogic.GetQuidditchPlayers(Models.Enums.HouseType.Hufflepuff);
+            var actual = houselogic.GetQuidditchPlayers("Hufflepuff");
             var expected = new List<WhoIsAQuidditchPlayerInTheHouse>()
             { 
                 new WhoIsAQuidditchPlayerInTheHouse() {studentname = "Maximus Brutalismus"}
@@ -63,7 +63,7 @@ namespace FN738S_HFT_2023241.Test
         [Test]
         public void GetStudentFromGryffindor()
         {
-            var actual = houselogic.GetStudentFromGryffindor(Models.Enums.HouseType.Gryffindor);
+            var actual = houselogic.GetStudentFromGryffindor("Gryffindor");
             var expected = new List<WhoIsInGryffindor>()
             {
                 new WhoIsInGryffindor() {studentname = "Harry Potter"},
@@ -96,7 +96,7 @@ namespace FN738S_HFT_2023241.Test
         {
             House house = new House()
             {
-                ID = 100, House_name = Models.Enums.HouseType.Slytherin,
+                ID = 100, House_name = "Slytherin",
                 House_points = 200, Founder_name= "Salazar Slytherin"
             };
             mockHouseRepo.Setup(m => m.Read(100)).Returns(house);
