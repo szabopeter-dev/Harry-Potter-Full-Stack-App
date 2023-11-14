@@ -1,46 +1,65 @@
-﻿using FN738S_HFT_2023241.Models;
+﻿using ConsoleTools;
+using FN738S_HFT_2023241.Models;
 using System;
+using System.Collections.Generic;
+using System.Numerics;
 
 namespace FN738S_HFT_2023241.Client
 {
-    internal class Program
+    public class Program
     {
         static RestService rest;
+        static void Create(string entity)
+        {
+            if (entity == "Student")
+            {
+                Console.Write("Enter Student Name: ");
+                string name = Console.ReadLine();
+
+                Console.Write($"Enter the HouseId of {name}: ");
+                int houseid = int.Parse(Console.ReadLine());
+                Console.Write($"Enter true/false if {name} is a quidditch player: ");
+                bool isaquidditchplayer = bool.Parse(Console.ReadLine());
+                rest.Post(new Student() { Name = name, HouseId =  houseid, Quidditch_player = isaquidditchplayer}, "student");
+            }
+        }
+        static void List(string entity)
+        {
+            if (entity == "Student")
+            {
+                List<Student> Students = rest.Get<Student>("student");
+                foreach (var item in Students)
+                {
+                    Console.Write(item.Name);
+                    if (item.Quidditch_player == true)
+                    {
+                        Console.Write(":  Quidditch Player");
+                    }
+                    Console.WriteLine();
+                }
+            }
+            Console.WriteLine("\nPress Enter to continue...");
+            Console.ReadLine();
+        }
+
+
         static void Main(string[] args)
         {
-            rest = new RestService("http://localhost:3736/", "Hogwarts");
+            rest = new RestService("http://localhost:3736/");
 
-            ////testing logics linq non crud methods in main
-            //var ctx = new HarrypDbContext();
-
-            //var studentrepo = new StudentRepository(ctx);
-            //var logic = new Studentlogic(studentrepo);
-
-            //var teacherrepo = new TeacherRepository(ctx);
-            //var teacherlogic = new Teacherlogic(teacherrepo);
+            var studentSubMeno = new ConsoleMenu(args, level: 1)
+            .Add("List", () => List("Student"))
+            .Add("Create", () => Create("Student"))
+           
+            .Add("Exit", ConsoleMenu.Close);
 
 
-            //var houserepo = new HouseRepository(ctx);
-            //var houselogic = new Houselogic(houserepo);
-
-            //var subjectrepo = new SubjectRepository(ctx);
-            //var subjectlogic = new Subjectlogic(subjectrepo);
-
-            //var subject_teacherrepo = new Subject_teacherRepository(ctx);
-            //var subject_teacherlogic = new Subject_teacherlogic(subject_teacherrepo);
+            var menu = new ConsoleMenu(args, level: 0)
+                .Add("Students", () => studentSubMeno.Show())
+                .Add("Exit", ConsoleMenu.Close);
 
 
-            //var nc1 = houselogic.GetStudentFromGryffindor(Models.Enums.HouseType.Gryffindor);
-
-            //var nc2 = subject_teacherlogic.GetTeachersByYearTaught(2000);
-
-            //var nc3 = subjectlogic.GetTeacherFromSubject("Defence Against the Dark Arts");
-
-            //var nc4 = houselogic.GetQuidditchPlayers(Models.Enums.HouseType.Slytherin);
-
-            //var nc5 = subjectlogic.GetAnimagusTeachersFromASubjects("Defence Against the Dark Arts");
-
-            //var nc6 = houselogic.GetRetiredTeachersFromHouse(Models.Enums.HouseType.Gryffindor);
+            menu.Show();
 
             
 

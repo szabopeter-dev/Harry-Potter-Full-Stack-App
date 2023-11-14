@@ -6,9 +6,7 @@ namespace FN738S_HFT_2023241.Models
     {
         static void Main(string[] args)
         {
-
-
-           
+  
            
         }
     }
