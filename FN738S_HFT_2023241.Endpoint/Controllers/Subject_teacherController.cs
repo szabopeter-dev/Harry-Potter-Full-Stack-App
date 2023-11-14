@@ -41,7 +41,7 @@ namespace FN738S_HFT_2023241.Endpoint.Controllers
         }
 
     
-        [HttpPut("{id}")]
+        [HttpPut]
         public void Update([FromBody] Subject_teacher value)
         {
             this.logic.Update(value);
