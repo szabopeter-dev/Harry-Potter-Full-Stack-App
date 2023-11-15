@@ -12,7 +12,7 @@ namespace FN738S_HFT_2023241.Logic.Interfaces
         House Read(int id);
         IQueryable<House> ReadAll();
         void Update(House item);
-        public IEnumerable<WhoIsInGryffindor> GetStudentFromGryffindor(string name);
+        public IEnumerable<WhoIsInTheHouse> GetStudentFromHouse(string name);
         public IEnumerable<WhoIsAQuidditchPlayerInTheHouse> GetQuidditchPlayers(string name);
         public IEnumerable<WhoIsARetiredTeacherOfHouse> GetRetiredTeachersFromHouse(string name);
     }

@@ -59,16 +59,8 @@ namespace FN738S_HFT_2023241.Logic.Classes
         {
             repo.Update(item);
         }
-      
-        public IEnumerable<WhoTaughtInThisYear> GetTeachersByYearTaught(int year)
-        {
-            return ReadAll()
-        .Where(subjectTeacher => subjectTeacher.Year_taught == year)
-        .Select(subjectTeacher => new WhoTaughtInThisYear
-        {
-            teachername = subjectTeacher.Teacher.Name
-        });
-    }
-       
+
+        
     }
 }
+

@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static FN738S_HFT_2023241.Models.House;
 using static FN738S_HFT_2023241.Models.Student;
+using static FN738S_HFT_2023241.Models.Subject_teacher;
 using static FN738S_HFT_2023241.Models.Teacher;
 
 namespace FN738S_HFT_2023241.Logic.Classes
@@ -59,10 +60,11 @@ namespace FN738S_HFT_2023241.Logic.Classes
         {
             repo.Update(item);
         }
-       
-       
 
         
+
+
+
     }
 }
 

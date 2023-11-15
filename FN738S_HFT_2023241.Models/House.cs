@@ -46,9 +46,9 @@ namespace FN738S_HFT_2023241.Models
         public virtual ICollection<Teacher> Teachers { get; set; }
 
 
-        public class WhoIsInGryffindor
+        public class WhoIsInTheHouse
         {
-            public WhoIsInGryffindor()
+            public WhoIsInTheHouse()
             {
             }
             public string studentname { get; set; }
@@ -60,7 +60,7 @@ namespace FN738S_HFT_2023241.Models
 
             public override bool Equals(object obj)
             {
-                WhoIsInGryffindor b = obj as WhoIsInGryffindor;
+                WhoIsInTheHouse b = obj as WhoIsInTheHouse;
                 if (b == null)
                 {
                     return false;

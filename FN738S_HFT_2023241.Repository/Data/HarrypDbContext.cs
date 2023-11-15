@@ -29,9 +29,7 @@ namespace FN738S_HFT_2023241.Repository.Data
         {
             if (!builder.IsConfigured)
             {
-                //string conn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\handb\OneDrive\Desktop\feleveshft\FN738S_HFT_2023241.Repository\Data\HarryPotterDatabase.mdf;Integrated Security=True;MultipleActiveResultSets=true";
                 builder
-                //.UseSqlServer(conn)
                 .UseInMemoryDatabase("HarryPotterDB")
                 .UseLazyLoadingProxies();
 

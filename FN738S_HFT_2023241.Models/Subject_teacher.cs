@@ -34,44 +34,10 @@ namespace FN738S_HFT_2023241.Models
         public int Year_taught { get; set; }
         [NotMapped]
         [JsonIgnore]
-        public virtual Subject Subject { get; private set; }
+        public virtual Subject Subject { get;  set; }
         [NotMapped]
-        
-        public virtual Teacher Teacher { get; private set; }
+        public virtual Teacher Teacher { get;  set; }
 
-        public class WhoTaughtInThisYear
-        {
-            public WhoTaughtInThisYear()
-            {
-            }
-            public string teachername { get; set; }
-
-            public override string ToString()
-            {
-                return $"{teachername}";
-            }
-
-            public override bool Equals(object obj)
-            {
-                WhoTaughtInThisYear b = obj as WhoTaughtInThisYear;
-                if (b == null)
-                {
-                    return false;
-                }
-                else
-                {
-                    return this.teachername == b.teachername;
-
-
-
-                }
-            }
-
-            public override int GetHashCode()
-            {
-                return HashCode.Combine(this.teachername);
-            }
-
-        }
+      
     }
 }

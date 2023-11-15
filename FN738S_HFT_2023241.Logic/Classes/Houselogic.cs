@@ -76,7 +76,7 @@ namespace FN738S_HFT_2023241.Logic.Classes
 
         }
 
-        //get retired housetyped teachers
+     
 
        public IEnumerable<WhoIsARetiredTeacherOfHouse> GetRetiredTeachersFromHouse(string name)
         {
@@ -92,13 +92,13 @@ namespace FN738S_HFT_2023241.Logic.Classes
        
 
 
-        public IEnumerable<WhoIsInGryffindor> GetStudentFromGryffindor(string name)
+        public IEnumerable<WhoIsInTheHouse> GetStudentFromHouse(string name)
         {
 
             return ReadAll()
                 .Where(_ => _.House_name.Equals(name))
                 .SelectMany(_ => _.Students)
-            .Select(_ => new WhoIsInGryffindor()
+            .Select(_ => new WhoIsInTheHouse()
             {
                 studentname = _.Name
             });

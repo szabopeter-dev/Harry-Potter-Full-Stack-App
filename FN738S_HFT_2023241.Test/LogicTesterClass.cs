@@ -31,7 +31,9 @@ namespace FN738S_HFT_2023241.Test
             {
                 //Gryffindor
                 new House(){ID = 1, House_name = "Gryffindor", Founder_name = "Godric Gryffindor", House_points = 100,
-                Students = new List<Student>(){new Student() {Name = "Harry Potter", Quidditch_player = false}, new Student() { Name = "Hermione Granger", Quidditch_player = false} } },
+                    Students = new List<Student>(){new Student() {Name = "Harry Potter", Quidditch_player = false}, new Student() { Name = "Hermione Granger", Quidditch_player = false} }, 
+                    Teachers= new List<Teacher>(){ new Teacher() {Name = "Dolores Umbridge", Animagus = false, IsRetired = true },
+                                                   new Teacher() { Name = "Elspeth Mqalagony", Animagus = true, IsRetired = false } } },
 
                 //Hufflepuff
                 new House(){ID = 2, House_name = "Hufflepuff", Founder_name = "Helga Hufflepuff", House_points = 110,
@@ -49,6 +51,17 @@ namespace FN738S_HFT_2023241.Test
 
         }
         [Test]
+        public void GetRetiredTeachersFromHouse()
+        {
+            var actual = houselogic.GetRetiredTeachersFromHouse("Gryffindor");
+            var expected = new List<WhoIsARetiredTeacherOfHouse>()
+            {
+                new WhoIsARetiredTeacherOfHouse() {teachername = "Dolores Umbridge"}
+            };
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
         public void GetQuidditchPlayersFromTheHouse()
         {
             var actual = houselogic.GetQuidditchPlayers("Hufflepuff");
@@ -57,17 +70,17 @@ namespace FN738S_HFT_2023241.Test
                 new WhoIsAQuidditchPlayerInTheHouse() {studentname = "Maximus Brutalismus"}
             };
             Assert.AreEqual(expected, actual);
-            ;
+            
         }
 
         [Test]
-        public void GetStudentFromGryffindor()
+        public void GetStudentFromHouse()
         {
-            var actual = houselogic.GetStudentFromGryffindor("Gryffindor");
-            var expected = new List<WhoIsInGryffindor>()
+            var actual = houselogic.GetStudentFromHouse("Gryffindor");
+            var expected = new List<WhoIsInTheHouse>()
             {
-                new WhoIsInGryffindor() {studentname = "Harry Potter"},
-                new WhoIsInGryffindor() {studentname = "Hermione Granger"}
+                new WhoIsInTheHouse() {studentname = "Harry Potter"},
+                new WhoIsInTheHouse() {studentname = "Hermione Granger"}
             };
             Assert.AreEqual(expected, actual);
         }

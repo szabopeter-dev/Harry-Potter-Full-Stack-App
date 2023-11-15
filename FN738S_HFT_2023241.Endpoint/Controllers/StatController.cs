@@ -38,9 +38,9 @@ namespace FN738S_HFT_2023241.Endpoint.Controllers
         }
 
         [HttpGet("{name}")]
-        public IEnumerable<WhoIsInGryffindor> GetStudentFromGryffindor(string name)
+        public IEnumerable<WhoIsInTheHouse> GetStudentFromHouse(string name)
         {
-            return this.houselogic.GetStudentFromGryffindor(name);
+            return this.houselogic.GetStudentFromHouse(name);
         }
 
         [HttpGet("{subjectname}")]
@@ -54,11 +54,7 @@ namespace FN738S_HFT_2023241.Endpoint.Controllers
         {
             return this.subjectlogic.GetAnimagusTeachersFromASubjects(subjectname);
         }
-        [HttpGet("{year}")]
-        public IEnumerable<WhoTaughtInThisYear> GetTeachersByYearTaught(int year)
-        { 
-            return this.subject_Teacherlogic.GetTeachersByYearTaught(year);
-        }
+        
 
     }
 }
