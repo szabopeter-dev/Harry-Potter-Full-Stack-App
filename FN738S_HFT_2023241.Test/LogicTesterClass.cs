@@ -59,6 +59,7 @@ namespace FN738S_HFT_2023241.Test
                 new WhoIsARetiredTeacherOfHouse() {teachername = "Dolores Umbridge"}
             };
             Assert.AreEqual(expected, actual);
+            
         }
 
         [Test]
