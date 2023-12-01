@@ -49,7 +49,7 @@ namespace FN738S_HFT_2023241.Endpoint.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            this.Delete(id);
+            this.logic.Delete(id);
         }
     }
 }

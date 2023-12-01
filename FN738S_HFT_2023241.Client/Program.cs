@@ -176,6 +176,8 @@ namespace FN738S_HFT_2023241.Client
                 one.Year_taught = yeart;
                 rest.Put(one, "subject_teacher");
             }
+            Console.WriteLine("\nPress Enter to continue...");
+            Console.ReadLine();
         }
         static void Delete(string entity)
         {
@@ -209,7 +211,8 @@ namespace FN738S_HFT_2023241.Client
                 int id = int.Parse(Console.ReadLine());
                 rest.Delete(id, "subject_teacher");
             }
-
+            Console.WriteLine("\nPress Enter to continue...");
+            Console.ReadLine();
         }
 
       
