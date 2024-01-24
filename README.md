@@ -1,112 +1,55 @@
 
 # Hogwarts Potions API
 
-This is a solo project from the Advanced C# Asp.net module of codecool .(10th month of the 12 month long curriculum)
+This is a separate semester assignment that contains advanced c# knowledge.
 With this project I learned about the following topics:
 - Entity Framework Core
 - Code-first approach
 - SQL Server database connection
+- Navigation Properties
+- CRUD/NON CRUD Methods
 - Asynchronous programming
+- NUnit
 
 # Description
 
-Its a Harry Potter themed project, you can manage potions with requests,
- to use CRUD operations on the entity framework core database.
+Its a Harry Potter themed project, you can add Teachers Students
+to different Houses and call NON CRUD methods to get back some data.
 
 
 ## API Reference
 
-#### Get all potions
+#### Get all Houses
 
 ```http
-  GET /potions
+  GET /House
 ```
 
-#### Add new potion
+#### Add new House
 
 ```http
-  POST /potions/${id}
-```
-
-Request body example:
-
-{
-        "name": "TestPotion",
-        "ingredients": [
-            {
-                "name": "Ingredien1"
-            },
-            {
-                "name": "Ingredien2"
-            }
-        ],
-        "status": 0,
-        "recipe": {
-            "name": "TestRecipe",
-            "brewer": null,
-            "ingredients": null
-        }
-}
-
-
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `id`      | `string` | Id of the brewing student |
-
-
-#### Add new empty potion
-
-```http
-  POST /potions/${id}
-```
-
-
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `id`      | `string` | Id of the brewing student |
-
-
-#### Get all potions brewed by student based on student id
-
-```http
-  GET /potions/${id}
-```
-
-
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `id`      | `string` | Id of the brewing student |
-
-
-#### Add ingredient to potion
-
-```http
-  POST /potions/${id}/add
+  POST /House
 ```
 
 Request body example:
 
 {
-        "name": "TestIngredient",
+  "id": 0,
+  "house_name": "TestHouse",
+  "founder_name": "TestFounder",
+  "house_points": 888
 }
 
-
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `id`      | `string` | Id of the potion |
-
-
-#### Get all recipes based on ingredients of the potion
-
-If there is any recipe in the database you will get back all which contains any of the ingredients what the potion already has.
+#### Get Student From House (NON CRUD)
 
 ```http
-  POST /potions/${id}/help
+  GET /Stat/GetStudentFromHouse/{name}
 ```
+Response body example:
 
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `id`      | `string` | Id of the potion |
+{
+    "studentname": "TestResponse"
+}
 
 ## Run Locally
 
@@ -114,13 +57,13 @@ Open terminal,
 Clone the project
 
 ```bash
-  git clone https://github.com/CodecoolGlobal/hogwarts-potions-csharp-vmarcell96
+  git clone https://github.com/szabopeter-dev/Harry-Potter-Full-Stack-App
 ```
 
 Go to the project directory
 
 ```bash
-  cd .\hogwarts-potions-csharp-vmarcell96
+  cd .\Harry-Potter-Full-Stack-App
 ```
 
 Start the application
