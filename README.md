@@ -22,9 +22,7 @@ Nunit Moq tests included too.
 
 #### Get all Houses
 
-```http
-  GET /House
-```
+ `GET /House` - Retrieve all houses
 
 #### Add new House
 
