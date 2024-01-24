@@ -22,7 +22,9 @@ Nunit Moq tests included too.
 
 #### Get all Houses
 
- `GET /House` - Retrieve all houses
+```http
+  GET /House
+```
 
 #### Add new House
 
@@ -41,9 +43,9 @@ Request body example:
 
 #### Get Student From House (NON CRUD)
 
-``http
+```http
   GET /Stat/GetStudentFromHouse/{name}
-``
+```
 Response body example:
 
 {
