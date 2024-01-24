@@ -43,9 +43,9 @@ Request body example:
 
 #### Get Student From House (NON CRUD)
 
-```http
+``http
   GET /Stat/GetStudentFromHouse/{name}
-```
+``
 Response body example:
 
 {
