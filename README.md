@@ -1,5 +1,5 @@
 
-# Hogwarts Potions API
+# Harry Potter Full Stack App
 
 This is a separate semester assignment that contains advanced c# knowledge.
 With this project I learned about the following topics:
