@@ -1,7 +1,7 @@
 
 # Harry Potter Full Stack App
 
-This is a separate semester assignment that contains advanced c# knowledge.
+This is an individual semester assignment that contains advanced c# knowledge.
 With this project I learned about the following topics:
 - Entity Framework Core
 - Code-first approach
