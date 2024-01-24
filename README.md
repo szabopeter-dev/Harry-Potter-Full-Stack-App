@@ -13,8 +13,9 @@ With this project I learned about the following topics:
 
 # Description
 
-Its a Harry Potter themed project, you can add Teachers Students
-to different Houses and call NON CRUD methods to get back some data.
+Its a Harry Potter themed project, you can add Teachers Students Subjects
+to different Houses and call NON CRUD methods to get back some data. 
+Nunit Moq tests included too.
 
 
 ## API Reference
