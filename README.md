@@ -73,7 +73,7 @@ Start the application
 ```
 
 
-## Roadmap
+## Future Goals
 
-- Adding frontend to the application
+- Adding GUI/Frontend to the application
 
