@@ -1,6 +1,8 @@
 ﻿let students = [];
 let connection = null;
 
+let studentIdToUpdate = -1;
+
 getData();
 setupSignalR();
 
@@ -14,6 +16,9 @@ function setupSignalR() {
         getData();
     });
     connection.on("StudentDeleted", (user, message) => {
+        getData();
+    });
+    connection.on("StudentUpdated", (user, message) => {
         getData();
     });
 
@@ -53,12 +58,18 @@ function display() {
 
             document.getElementById('resultarea').innerHTML +=
                 "<tr><td>" + t.name + "</td><td>"
-                + t.id + "</td>" + "<td>" + "Quidditch Player" + "<td>"+ `<button id="deleteBtn" type="button" onclick="remove(${ t.id })">Delete</button>`+"</td></tr>";
+                + t.id + "</td>" + "<td>" + "Quidditch Player" + "<td>" +
+                `<button id="deleteBtn" type="button" onclick="remove(${t.id})">Delete</button>` +
+                `<button id="updateBtn" type="button" onclick="showupdate(${t.id})">Update</button>` +
+                "</td></tr>";
         }
        else {
             document.getElementById('resultarea').innerHTML +=
                 "<tr><td>" + t.name + "</td><td>"
-                + t.id + "</td>" + "<td>" + " - " + "<td>" + `<button id="deleteBtn" type="button" onclick="remove(${t.id})">Delete</button>` + "</td></tr>";
+            + t.id + "</td>" + "<td>" + " - " + "<td>" +
+                `<button id="deleteBtn" type="button" onclick="remove(${t.id})">Delete</button>` +
+                `<button id="updateBtn" type="button" onclick="showupdate(${t.id})">Update</button>` +
+                "</td></tr>";
         }
         console.log(t.name);
         
@@ -101,4 +112,32 @@ function remove(id) {
             getdata();
         })
         .catch((error) => { console.error('Error:', error); });
+}
+
+function update() {
+    document.getElementById('updateformdiv').style.display = 'none';
+    let name = document.getElementById('studentnameToupdate').value;
+    fetch('http://localhost:3736/Student/', {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(
+            {
+                name: name, Id: studentIdToUpdate
+            })
+    })
+        .then(response => response)
+        .then(data => {
+            console.log('Success:', data);
+            getdata();
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+}
+function showupdate(id) {
+    document.getElementById('studentnameToupdate').value = students.find(t => t['id'] == id)['name'];
+    document.getElementById('updateformdiv').style.display = 'flex';
+    studentIdToUpdate = id;
 }

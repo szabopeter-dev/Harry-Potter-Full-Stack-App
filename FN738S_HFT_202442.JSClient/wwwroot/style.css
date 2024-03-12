@@ -109,11 +109,56 @@ tr:hover {
     cursor: pointer;
     transition: background-color 0.3s;
 }
-    
+   
 #deleteBtn:hover{
     background-color: #ff3333;
 }
 
+#updateformdiv {
+    display: none;
+    background-color: #fff;
+    padding: 20px;
+    margin: 30px auto;
+    width: 60%;
+    box-shadow: 0 6px 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+
+    justify-content: space-between;
+    align-items: center;
+}
+
+    #updateformdiv label {
+        font-weight: bold;
+        margin-right: 10px;
+    }
+
+    #updateformdiv input[type="text"] {
+        flex-grow: 1;
+        padding: 10px;
+        margin-right: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+
+    #updateformdiv button {
+        padding: 10px 20px;
+        background-color: #55608f;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+#updateBtn {
+    background-color: green;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 8px 16px;
+    transition: background-color 0.3s;
+    margin-left: 8px; 
+}
 
 @media screen and (max-width: 600px) {
     table {
