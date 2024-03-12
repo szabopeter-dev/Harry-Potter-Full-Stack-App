@@ -1,3 +1,4 @@
+using FN738S_HFT_2023241.Endpoint.Services;
 using FN738S_HFT_2023241.Logic.Classes;
 using FN738S_HFT_2023241.Logic.Interfaces;
 using FN738S_HFT_2023241.Models;
@@ -50,6 +51,8 @@ namespace FN738S_HFT_2023241.Endpoint
             services.AddTransient<ISubject_teacherlogic, Subject_teacherlogic>();
             services.AddTransient<ITeacherlogic, Teacherlogic>();
 
+            services.AddSignalR();
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -83,6 +86,7 @@ namespace FN738S_HFT_2023241.Endpoint
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<SignalRHub>("/hub");
             });
         }
     }

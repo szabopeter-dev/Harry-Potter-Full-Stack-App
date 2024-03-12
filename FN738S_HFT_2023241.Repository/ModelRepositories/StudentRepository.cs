@@ -17,6 +17,7 @@ namespace FN738S_HFT_2023241.Repository.ModelRepositories
         public override Student Read(int id)
         {
             return this.ctx.Students.First(t => t.Id == id);
+            
         }
         public override void Update(Student item)
         {

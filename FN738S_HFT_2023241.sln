@@ -19,7 +19,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{34
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{8F2A99AF-4D38-4980-9B49-1C15026FB625}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FN738S_HFT_2023241.Endpoint", "FN738S_HFT_2023241.Endpoint\FN738S_HFT_2023241.Endpoint.csproj", "{3191EEF2-C0DF-42A6-96F5-717A02DB0D98}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FN738S_HFT_2023241.Endpoint", "FN738S_HFT_2023241.Endpoint\FN738S_HFT_2023241.Endpoint.csproj", "{3191EEF2-C0DF-42A6-96F5-717A02DB0D98}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFClient", "WPFClient\WPFClient.csproj", "{5FCCE30D-B082-41BE-841F-EB24F5CE229E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{3191EEF2-C0DF-42A6-96F5-717A02DB0D98}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3191EEF2-C0DF-42A6-96F5-717A02DB0D98}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3191EEF2-C0DF-42A6-96F5-717A02DB0D98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FCCE30D-B082-41BE-841F-EB24F5CE229E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FCCE30D-B082-41BE-841F-EB24F5CE229E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FCCE30D-B082-41BE-841F-EB24F5CE229E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FCCE30D-B082-41BE-841F-EB24F5CE229E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

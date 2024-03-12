@@ -1,7 +1,10 @@
-﻿using FN738S_HFT_2023241.Logic.Classes;
+﻿using FN738S_HFT_2023241.Endpoint.Services;
+using FN738S_HFT_2023241.Logic.Classes;
 using FN738S_HFT_2023241.Logic.Interfaces;
 using FN738S_HFT_2023241.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
+using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 
 
@@ -13,10 +16,11 @@ namespace FN738S_HFT_2023241.Endpoint.Controllers
     public class StudentController : ControllerBase
     {
         IStudentlogic logic;
-
-        public StudentController(IStudentlogic logic)
+        IHubContext<SignalRHub> hub;
+        public StudentController(IStudentlogic logic, IHubContext<SignalRHub> hub)
         {
             this.logic = logic;
+            this.hub = hub;
         }
 
         [HttpGet]
@@ -37,18 +41,22 @@ namespace FN738S_HFT_2023241.Endpoint.Controllers
         public void Create([FromBody] Student value)
         {
             this.logic.Create(value);
+            this.hub.Clients.All.SendAsync("StudentCreated", value);
         }
 
         [HttpPut]
         public void Update([FromBody] Student value)
         {
             this.logic.Update(value);
+            this.hub.Clients.All.SendAsync("StudentUpdated", value);
         }
 
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            var studentToDelete = this.logic.Read(id);
             this.logic.Delete(id);
+            this.hub.Clients.All.SendAsync("StudentDeleted", studentToDelete);
         }
     }
 }
