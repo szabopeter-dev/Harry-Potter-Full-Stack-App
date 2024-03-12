@@ -7,23 +7,30 @@
 </head>
 <body>
     <h1>Harry Potter Students Catalog</h1>
-    
+
+    <div id="formdiv">
+        <label>Student Name</label>
+        <input type="text" id="studentname" />
+        <button type="button" onclick="create()">Add Student</button>
+    </div>
+
+
     <table>
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Name</th>
+                <th>Id</th>
+                <th>Quidditch Player</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody id="resultarea">
             <tr>
-                <td>101</td>
-                <td>Chris Evans</td>
             </tr>
         </tbody>
     </table>
 
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
