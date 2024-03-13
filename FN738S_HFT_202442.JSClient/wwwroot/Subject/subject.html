@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Harry Potter UI</title>
+    <link rel="stylesheet" href="subject.css" />
+</head>
+<body>
+    <h1>Harry Potter Subjects Catalog</h1>
+
+    <div id="formdiv">
+        <label>Subject Name</label>
+        <input type="text" id="subjectname" />
+        <button type="button" onclick="create()">Add Subject</button>
+    </div>
+
+    <div id="updateformdiv">
+        <label>Subject Name</label>
+        <input type="text" id="subjectnameToupdate" />
+        <button type="button" onclick="update()">Update Subject</button>
+    </div>
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="resultarea">
+            <tr>
+            </tr>
+        </tbody>
+    </table>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+    <script src="subject.js"></script>
+</body>
+</html>

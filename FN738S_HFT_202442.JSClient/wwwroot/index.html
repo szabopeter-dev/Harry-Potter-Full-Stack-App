@@ -2,41 +2,14 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Harry Potter UI</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Harry Potter Menu</title>
+    <link rel="stylesheet" href="indexStyle.css" />
 </head>
 <body>
-    <h1>Harry Potter Students Catalog</h1>
-
-    <div id="formdiv">
-        <label>Student Name</label>
-        <input type="text" id="studentname" />
-        <button type="button" onclick="create()">Add Student</button>
-    </div>
-
-    <div id="updateformdiv">
-        <label>Student Name</label>
-        <input type="text" id="studentnameToupdate" />
-        <button type="button" onclick="update()">Update Student</button>
-    </div>
-
-
-    <table>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Id</th>
-                <th>Quidditch Player</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody id="resultarea">
-            <tr>
-            </tr>
-        </tbody>
-    </table>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
-    <script src="script.js"></script>
+    <h1>Harry Potter Menu</h1>
+    <button onclick="loadStudent()">Student</button>
+    <button onclick="loadHouse()">House</button>
+    <button onclick="loadSubject()">Subject</button>
+    <script src="indexScript.js"></script>
 </body>
 </html>

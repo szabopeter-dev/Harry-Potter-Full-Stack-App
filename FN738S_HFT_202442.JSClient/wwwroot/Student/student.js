@@ -58,7 +58,7 @@ function display() {
 
             document.getElementById('resultarea').innerHTML +=
                 "<tr><td>" + t.name + "</td><td>"
-                + t.id + "</td>" + "<td>" + "Quidditch Player" + "<td>" +
+                + t.id + "</td>" + "<td>" +
                 `<button id="deleteBtn" type="button" onclick="remove(${t.id})">Delete</button>` +
                 `<button id="updateBtn" type="button" onclick="showupdate(${t.id})">Update</button>` +
                 "</td></tr>";
@@ -66,7 +66,7 @@ function display() {
        else {
             document.getElementById('resultarea').innerHTML +=
                 "<tr><td>" + t.name + "</td><td>"
-            + t.id + "</td>" + "<td>" + " - " + "<td>" +
+            + t.id + "</td>" + "<td>" +
                 `<button id="deleteBtn" type="button" onclick="remove(${t.id})">Delete</button>` +
                 `<button id="updateBtn" type="button" onclick="showupdate(${t.id})">Update</button>` +
                 "</td></tr>";

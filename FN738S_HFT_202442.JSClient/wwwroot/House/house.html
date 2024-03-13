@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Harry Potter UI</title>
+    <link rel="stylesheet" href="houseStyle.css" />
+</head>
+<body>
+    <h1>Harry Potter House Catalog</h1>
+
+    <div id="formdiv">
+        <label>House Name</label>
+        <input type="text" id="housename" />
+        <label>House points</label>
+        <input type="number" id="housepoints" />
+
+        <button type="button" onclick="create()">Add House</button>
+
+    </div>
+
+    <div id="updateformdiv">
+        <label>House Name</label>
+        <input type="text" id="housenameToupdate" />
+        <label>House Points</label>
+        <input type="number" id="housepointsToupdate" />
+        <button type="button" onclick="update()">Update House</button>
+    </div>
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Id</th>
+                <th>House Point</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="resultarea">
+            <tr>
+            </tr>
+        </tbody>
+    </table>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+    <script src="houseScript.js"></script>
+</body>
+</html>

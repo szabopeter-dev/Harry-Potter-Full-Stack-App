@@ -1,0 +1,183 @@
+﻿/*table {
+    width: 70%;
+    border-collapse: collapse;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th, td {
+    padding: 5px;
+}
+
+th {
+    background-color: lightblue;
+}
+
+h1 {
+    text-align: center;
+}
+*/
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #eaeaea; 
+    margin: 0;
+    padding: 20px;
+    color: #333; 
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 2.5em; 
+}
+
+table {
+    width: 60%;
+    border-collapse: collapse;
+    margin: 20px auto 50px auto; 
+    box-shadow: 0 6px 10px rgba(0,0,0,0.1); 
+    background-color: #fff; 
+    overflow: hidden;
+    border-radius: 8px; 
+}
+
+th, td {
+    padding: 15px;
+    text-align: center;
+}
+
+th {
+    background-color: #7A9CC6; 
+    color: #ffffff; 
+    font-size: 1.2em; 
+}
+
+tr:nth-child(even) {
+    background-color: #f6f6f6; 
+}
+
+tr:hover {
+    background-color: #dfe3ea;
+}
+
+
+#formdiv {
+    background-color: #fff;
+    padding: 20px;
+    margin: 30px auto;
+    width: 60%;
+    box-shadow: 0 6px 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+    #formdiv label {
+        font-weight: bold;
+        margin-right: 10px;
+    }
+
+    #formdiv input[type="text"] {
+        flex-grow: 1;
+        padding: 10px;
+        margin-right: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+
+    #formdiv button {
+        padding: 10px 20px;
+        background-color: #55608f;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+#deleteBtn {
+    background-color: #ff4d4d;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+   
+#deleteBtn:hover{
+    background-color: #ff3333;
+}
+
+#updateformdiv {
+    display: none;
+    background-color: #fff;
+    padding: 20px;
+    margin: 30px auto;
+    width: 60%;
+    box-shadow: 0 6px 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+
+    justify-content: space-between;
+    align-items: center;
+}
+
+    #updateformdiv label {
+        font-weight: bold;
+        margin-right: 10px;
+    }
+
+    #updateformdiv input[type="text"] {
+        flex-grow: 1;
+        padding: 10px;
+        margin-right: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+
+    #updateformdiv button {
+        padding: 10px 20px;
+        background-color: #55608f;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+#updateBtn {
+    background-color: green;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 8px 16px;
+    transition: background-color 0.3s;
+    margin-left: 8px; 
+}
+
+@media screen and (max-width: 600px) {
+    table {
+        width: 100%;
+    }
+}
+
+table, #formdiv, #updateformdiv {
+    max-width: 800px; 
+    margin: 20px auto;
+    width: 100%;
+}
+
+@media screen and (min-width: 1024px) {
+    body {
+        padding: 40px;
+    }
+
+    h1 {
+        margin-bottom: 20px;
+    }
+}
