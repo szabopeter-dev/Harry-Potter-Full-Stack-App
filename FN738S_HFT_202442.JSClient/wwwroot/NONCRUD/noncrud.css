@@ -1,77 +1,84 @@
-﻿* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
+﻿body {
     font-family: 'Arial', sans-serif;
-    background-color: #f5f5f5;
-    line-height: 1.6;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 20px auto;
+    background-color: #f0f0f0;
+    margin: 20px;
     padding: 20px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: #333;
+    align-content: center;
+    text-align: center;
 }
 
 h1 {
-    color: #1a1a1a;
+    color: #005A9C;
     text-align: center;
-    margin-bottom: 30px;
-}
-
-.navbar {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 30px;
 }
 
 button {
-    background-color: #673ab7; /* Világos lila */
-    color: #ffffff;
+    background-color: #007BFF;
+    color: white;
     border: none;
     padding: 10px 20px;
-    margin: 0 5px;
-    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
     cursor: pointer;
+    border-radius: 5px;
     transition: background-color 0.3s ease;
 }
 
-    button:hover {
-        background-color: #9575cd; /* Halványabb lila */
-    }
-
-.description {
-    padding: 20px;
-    background-color: #f0e6ff; /* Halvány lila háttér */
-    color: #333;
-    border-left: 5px solid #673ab7; /* Sötét lila szegély */
-    margin-bottom: 30px;
+#backButton{
+    background-color: lightcoral;
+    height: 50px;
+    text-align: left;
 }
 
-/* Táblázat stílusai */
+button:hover {
+    background-color: #0056b3;
+}
+
+#ShowButtons button {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin: 20px 0 10px;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box; 
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
     margin: 20px 0;
+    background-color: #ffffff; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 }
 
 th, td {
-    padding: 10px;
-    border: 1px solid #ddd;
     text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.2s; 
 }
 
-th {
-    background-color: #673ab7; /* Világos lila */
-    color: #fff;
+tbody tr:hover {
+    background-color: #f9f9f9; 
 }
 
-tr:nth-child(even) {
-    background-color: #f2f2f2; /* Halvány szürke minden második sorban */
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
 }

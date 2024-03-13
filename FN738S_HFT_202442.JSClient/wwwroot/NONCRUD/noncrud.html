@@ -6,7 +6,8 @@
     <link rel="stylesheet" href="noncrud.css" />
 </head>
 <body>
-    <h1>NONCRUD Catalog</h1>
+    <button type="button" onclick="goBack()" id="backButton">Back to Main Page</button>
+    <h1>NONCRUD Menu</h1>
 
     <div id="ShowButtons">
         <button onclick="getdata03()">GetQuidditchPlayers</button>
@@ -111,9 +112,12 @@
             </tbody>
         </table>
     </div>
-    
 
-
+    <script>
+        function goBack() {
+            window.location.href = "../index.html";
+        }
+    </script>
     <script src="noncrud.js"></script>
 </body>
 </html>

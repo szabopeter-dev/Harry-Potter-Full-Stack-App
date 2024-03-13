@@ -48,12 +48,6 @@ function display03() {
 
 async function getdata03_final() {
     let str = document.getElementById('slctHouse').value;
-
-    //for (let i = 0; i < str.length; i++) {
-    //    if (str[i] === " ") {
-    //        str = str.substring(0, i) + "%20" + str.substring(i + 1);
-    //    }
-    //}
     str = "http://localhost:3736/Stat/GetQuidditchPlayers/" + str;
 
     await fetch(str)
