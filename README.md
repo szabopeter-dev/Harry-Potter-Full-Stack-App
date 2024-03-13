@@ -10,6 +10,8 @@ With this project I learned about the following topics:
 - CRUD/NON CRUD Methods
 - Asynchronous programming
 - NUnit
+- HTML/CSS/JS
+- WPF
 
 # Description
 
@@ -74,7 +76,5 @@ Start the application
 ```
 
 
-## Future Goals
-
-- Adding GUI/Frontend to the application
+2024 -- GUI added to my Full Stack App
 
