@@ -32,7 +32,7 @@ h1 {
 }
 
 button {
-    background-color: #673ab7; /* Világos lila */
+    background-color: #673ab7; 
     color: #ffffff;
     border: none;
     padding: 10px 20px;
@@ -43,18 +43,18 @@ button {
 }
 
     button:hover {
-        background-color: #9575cd; /* Halványabb lila */
+        background-color: #9575cd; 
     }
 
 .description {
     padding: 20px;
-    background-color: #f0e6ff; /* Halvány lila háttér */
+    background-color: #f0e6ff; 
     color: #333;
-    border-left: 5px solid #673ab7; /* Sötét lila szegély */
+    border-left: 5px solid #673ab7;
     margin-bottom: 30px;
 }
 
-/* Táblázat stílusai */
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -68,10 +68,10 @@ th, td {
 }
 
 th {
-    background-color: #673ab7; /* Világos lila */
+    background-color: #673ab7; 
     color: #fff;
 }
 
 tr:nth-child(even) {
-    background-color: #f2f2f2; /* Halvány szürke minden második sorban */
+    background-color: #f2f2f2; 
 }
