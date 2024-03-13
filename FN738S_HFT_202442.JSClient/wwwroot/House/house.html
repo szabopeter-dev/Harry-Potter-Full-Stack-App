@@ -6,8 +6,8 @@
     <link rel="stylesheet" href="houseStyle.css" />
 </head>
 <body>
+    <button type="button" onclick="goBack()" id="backButton">Back to Main Page</button>
     <h1>Harry Potter House Catalog</h1>
-
     <div id="formdiv">
         <label>House Name</label>
         <input type="text" id="housename" />
@@ -41,7 +41,11 @@
             </tr>
         </tbody>
     </table>
-
+    <script>
+        function goBack() {
+            window.location.href = "../index.html";
+        }
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
     <script src="houseScript.js"></script>
 </body>

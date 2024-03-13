@@ -24,27 +24,27 @@ h1 {
 */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #eaeaea; 
+    background-color: #eaeaea;
     margin: 0;
     padding: 20px;
-    color: #333; 
+    color: #333;
 }
 
 h1 {
     color: #333;
     text-align: center;
     margin-bottom: 50px;
-    font-size: 2.5em; 
+    font-size: 2.5em;
 }
 
 table {
     width: 60%;
     border-collapse: collapse;
-    margin: 20px auto 50px auto; 
-    box-shadow: 0 6px 10px rgba(0,0,0,0.1); 
-    background-color: #fff; 
+    margin: 20px auto 50px auto;
+    box-shadow: 0 6px 10px rgba(0,0,0,0.1);
+    background-color: #fff;
     overflow: hidden;
-    border-radius: 8px; 
+    border-radius: 8px;
 }
 
 th, td {
@@ -53,13 +53,13 @@ th, td {
 }
 
 th {
-    background-color: #7A9CC6; 
-    color: #ffffff; 
-    font-size: 1.2em; 
+    background-color: #7A9CC6;
+    color: #ffffff;
+    font-size: 1.2em;
 }
 
 tr:nth-child(even) {
-    background-color: #f6f6f6; 
+    background-color: #f6f6f6;
 }
 
 tr:hover {
@@ -100,6 +100,7 @@ tr:hover {
         cursor: pointer;
         border-radius: 4px;
     }
+
 #deleteBtn {
     background-color: #ff4d4d;
     color: white;
@@ -109,10 +110,10 @@ tr:hover {
     cursor: pointer;
     transition: background-color 0.3s;
 }
-   
-#deleteBtn:hover{
-    background-color: #ff3333;
-}
+
+    #deleteBtn:hover {
+        background-color: #ff3333;
+    }
 
 #updateformdiv {
     display: none;
@@ -122,7 +123,6 @@ tr:hover {
     width: 60%;
     box-shadow: 0 6px 10px rgba(0,0,0,0.1);
     border-radius: 8px;
-
     justify-content: space-between;
     align-items: center;
 }
@@ -148,6 +148,7 @@ tr:hover {
         cursor: pointer;
         border-radius: 4px;
     }
+
 #updateBtn {
     background-color: green;
     color: white;
@@ -157,11 +158,12 @@ tr:hover {
     cursor: pointer;
     padding: 8px 16px;
     transition: background-color 0.3s;
-    margin-left: 8px; 
+    margin-left: 8px;
 }
 
+
 #backButton {
-    background-color: #4285F4; 
+    background-color: #4285F4;
     color: white;
     padding: 10px 15px;
     border: none;
@@ -176,7 +178,7 @@ tr:hover {
 }
 
     #backButton:hover {
-        background-color: #357ae8; 
+        background-color: #357ae8;
     }
 
 @media screen and (max-width: 600px) {
@@ -186,7 +188,7 @@ tr:hover {
 }
 
 table, #formdiv, #updateformdiv {
-    max-width: 800px; 
+    max-width: 800px;
     margin: 20px auto;
     width: 100%;
 }

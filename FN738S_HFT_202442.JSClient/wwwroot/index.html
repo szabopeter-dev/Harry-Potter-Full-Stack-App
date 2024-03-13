@@ -6,9 +6,49 @@
     <link rel="stylesheet" href="indexStyle.css" />
 </head>
 <body>
-    <h1>Harry Potter Menu</h1>
-    <button onclick="loadStudent()">Student</button>
-    <button onclick="loadHouse()">House</button>
+    <div class="container">
+        <h1>Harry Potter Menu</h1>
+        <div class="navbar">
+            <button onclick="loadStudent()">Student</button>
+            <button onclick="loadHouse()">House</button>
+            <button onclick="loadSubject()">Subject</button>
+            <button onclick="loadTeacher()">Teacher</button>
+            <button onclick="loadNonCrud()">NONCRUD</button>
+        </div>
+        <div class="description">
+            <h2>Harry Potter Full Stack App</h2>
+            <p>This is an individual semester assignment that contains advanced c# knowledge. With this project I learned about the following topics:</p>
+            <ul>
+                <li>Entity Framework Core</li>
+                <li>Code-first approach</li>
+                <li>SQL Server database connection</li>
+                <li>Navigation Properties</li>
+                <li>CRUD/NON CRUD Methods</li>
+                <li>Asynchronous programming</li>
+                <li>NUnit</li>
+            </ul>
+            <p>It's a Harry Potter themed project, you can add Teachers, Students, and Subjects to different Houses and call NON CRUD methods to get back some data. Nunit Moq tests included too.</p>
+        </div>
+    </div>
     <script src="indexScript.js"></script>
+    <script>
+
+        function loadStudent() {
+            window.location = "/Student/student.html";
+        }
+
+        function loadHouse() {
+            window.location = "/House/house.html";
+        }
+        function loadSubject() {
+            window.location = "/Subject/subject.html";
+        }
+        function loadTeacher() {
+            window.location = "/Teacher/teacher.html";
+        }
+        function loadNonCrud() {
+            window.location = "/NONCRUD/noncrud.html";
+        }
+    </script>
 </body>
 </html>

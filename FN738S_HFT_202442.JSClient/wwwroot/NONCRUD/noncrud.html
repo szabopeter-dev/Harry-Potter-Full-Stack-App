@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>NONCRUDS</title>
+    <link rel="stylesheet" href="noncrud.css" />
+</head>
+<body>
+    <h1>NONCRUD Catalog</h1>
+
+    <div id="ShowButtons">
+        <button onclick="getdata03()">GetQuidditchPlayers</button>
+        <button onclick="getdata04()">GetRetiredTeachersFromHouse</button>
+        <button onclick="getdata05()">GetStudentFromHouse</button>
+        <button onclick="getdata06()">GetTeacherFromSubject</button>
+        <button onclick="getdata00()">GetSumCostOfShipsPerPerson</button>
+    </div>
+
+    <div id="noncrudform">
+        <table>
+            <thead>
+                <tr>
+                </tr>
+            </thead>
+            <tbody id="noncrudresult">
+            </tbody>
+        </table>
+    </div>
+
+    <div id="form_GetQuidditchPlayers" style="display:none">
+        <label>Select a House</label>
+        <select id="slctHouse">
+            <option value="">choose one</option>
+        </select>
+        <button id="getd03btn" onclick="getdata03_final()">Run</button>
+
+        <table>
+            <thead>
+                <tr>
+                </tr>
+            </thead>
+            <tbody id="result_GetQuidditchPlayers">
+            </tbody>
+        </table>
+    </div>
+
+    <div id="form_GetRetiredTeachersFromHouse" style="display:none">
+        <label>Select a House</label>
+        <select id="slctHouse2">
+            <option value="">choose one</option>
+        </select>
+        <button onclick="getdata04_final()">Run</button>
+
+        <table>
+            <thead>
+                <tr>
+                </tr>
+            </thead>
+            <tbody id="result_GetRetiredTeachersFromHouse">
+            </tbody>
+        </table>
+    </div>
+
+    <div id="form_GetStudentFromHouse" style="display:none">
+        <label>Select a House</label>
+        <select id="slctHouse3">
+            <option value="">choose one</option>
+        </select>
+        <button onclick="getdata05_final()">Run</button>
+
+        <table>
+            <thead>
+                <tr>
+                </tr>
+            </thead>
+            <tbody id="result_GetStudentFromHouse">
+            </tbody>
+        </table>
+    </div>
+
+    <div id="form_GetTeacherFromSubject" style="display:none">
+        <label>Select a Subject</label>
+        <select id="slctsubject">
+            <option value="">choose one</option>
+        </select>
+        <button onclick="getdata06_final()">Run</button>
+
+        <table>
+            <thead>
+                <tr>
+                </tr>
+            </thead>
+            <tbody id="result_GetTeacherFromSubject">
+            </tbody>
+        </table>
+    </div>
+
+
+    <script src="noncrud.js"></script>
+</body>
+</html>

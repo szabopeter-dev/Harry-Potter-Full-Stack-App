@@ -3,21 +3,22 @@
 <head>
     <meta charset="utf-8" />
     <title>Harry Potter UI</title>
-    <link rel="stylesheet" href="student.css" />
+    <link rel="stylesheet" href="teacher.css" />
 </head>
 <body>
     <button type="button" onclick="goBack()" id="backButton">Back to Main Page</button>
-    <h1>Harry Potter Students Catalog</h1>
+    <h1>Harry Potter Teachers Catalog</h1>
+
     <div id="formdiv">
-        <label>Student Name</label>
-        <input type="text" id="studentname" />
-        <button type="button" onclick="create()">Add Student</button>
+        <label>Teacher Name</label>
+        <input type="text" id="teachername" />
+        <button type="button" onclick="create()">Add Teacher</button>
     </div>
 
     <div id="updateformdiv">
-        <label>Student Name</label>
-        <input type="text" id="studentnameToupdate" />
-        <button type="button" onclick="update()">Update Student</button>
+        <label>Teacher Name</label>
+        <input type="text" id="teachernameToupdate" />
+        <button type="button" onclick="update()">Update Teacher</button>
     </div>
 
 
@@ -40,7 +41,6 @@
         }
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
-    <script src="student.js"></script>
-
+    <script src="teacher.js"></script>
 </body>
 </html>

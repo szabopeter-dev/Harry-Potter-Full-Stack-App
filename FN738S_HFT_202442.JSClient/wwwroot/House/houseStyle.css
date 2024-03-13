@@ -185,6 +185,24 @@ tr:hover {
     margin-left: 8px;
 }
 
+#backButton {
+    background-color: #4285F4;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+    #backButton:hover {
+        background-color: #357ae8;
+    }
 @media screen and (max-width: 600px) {
     table {
         width: 100%;
