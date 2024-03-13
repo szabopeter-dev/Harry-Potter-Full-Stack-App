@@ -13,7 +13,7 @@
         <button onclick="getdata04()">GetRetiredTeachersFromHouse</button>
         <button onclick="getdata05()">GetStudentFromHouse</button>
         <button onclick="getdata06()">GetTeacherFromSubject</button>
-        <button onclick="getdata00()">GetSumCostOfShipsPerPerson</button>
+        <button onclick="getdata07()">GetAnimagusTeachersFromASubjects</button>
     </div>
 
     <div id="noncrudform">
@@ -94,6 +94,24 @@
             </tbody>
         </table>
     </div>
+
+    <div id="form_GetAnimagusTeachersFromASubjects" style="display:none">
+        <label>Select a Subject</label>
+        <select id="slctsubject2">
+            <option value="">choose one</option>
+        </select>
+        <button onclick="getdata07_final()">Run</button>
+
+        <table>
+            <thead>
+                <tr>
+                </tr>
+            </thead>
+            <tbody id="result_GetAnimagusTeachersFromASubjects">
+            </tbody>
+        </table>
+    </div>
+    
 
 
     <script src="noncrud.js"></script>
