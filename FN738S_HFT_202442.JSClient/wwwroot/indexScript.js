@@ -1,6 +1,4 @@
-﻿function loadSubject() {
-    window.location = "/Subject/subject.html";
-}
+﻿
 function loadStudent() {
     window.location = "/Student/student.html";
 }
@@ -8,4 +6,6 @@ function loadStudent() {
 function loadHouse() {
     window.location = "/House/house.html";
 }
+
+
 
