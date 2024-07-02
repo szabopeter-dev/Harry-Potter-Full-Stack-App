@@ -5,11 +5,12 @@ This is an individual semester assignment that contains advanced c# knowledge.
 With this project I learned about the following topics:
 - Entity Framework Core
 - Code-first approach
+- SignalR
 - SQL Server database connection
 - Navigation Properties
 - CRUD/NON CRUD Methods
 - Asynchronous programming
-- NUnit
+- NUnit, Moq
 - HTML/CSS/JS
 - WPF
 
