@@ -1,81 +1,43 @@
+# Harry Potter Full-Stack App
 
-# Harry Potter Full Stack App
+University assignment: a layered .NET full-stack application with multiple
+client front-ends, a Harry-Potter-themed CRUD + non-CRUD domain (Houses,
+Students, Subjects, Teachers).
 
-This is an individual semester assignment that contains advanced c# knowledge.
-With this project I learned about the following topics:
-- Entity Framework Core
-- Code-first approach
-- SignalR
-- SQL Server database connection
-- Navigation Properties
-- CRUD/NON CRUD Methods
-- Asynchronous programming
-- NUnit, Moq
-- HTML/CSS/JS
-- WPF
+## Architecture
 
-# Description
+| Project | Role |
+|---|---|
+| `Models` | Domain entities (House, Student, Subject, Teacher) |
+| `Repository` | EF Core, generic + per-model repositories, SQL Server |
+| `Logic` | Service interfaces + implementations |
+| `Endpoint` | ASP.NET Core Web API + SignalR |
+| `Client` | Console REST client |
+| `JSClient` | Razor + JS web client |
+| `WPFClient` | WPF desktop client (MVVM) |
+| `Test` | NUnit + Moq unit tests |
 
-Its a Harry Potter themed project, you can add Teachers Students Subjects
-to different Houses and call NON CRUD methods to get back some data. 
-Nunit Moq tests included too.
+Code-first EF migrations, async controllers, SignalR for live updates.
 
-
-## API Reference
-
-#### Get all Houses
+## API examples
 
 ```http
-  GET /House
+GET  /House
+POST /House
+GET  /Stat/GetStudentFromHouse/{name}      # non-CRUD aggregate
 ```
 
-#### Add new House
-
-```http
-  POST /House
+```json
+{ "id": 0, "house_name": "TestHouse", "founder_name": "TestFounder", "house_points": 888 }
 ```
 
-Request body example:
-
-{
-  "id": 0,
-  "house_name": "TestHouse",
-  "founder_name": "TestFounder",
-  "house_points": 888
-}
-
-#### Get Student From House (NON CRUD)
-
-```http
-  GET /Stat/GetStudentFromHouse/{name}
-```
-Response body example:
-
-{
-    "studentname": "TestResponse"
-}
-
-## Run Locally
-
-Open terminal, 
-Clone the project
+## Run
 
 ```bash
-  git clone https://github.com/szabopeter-dev/Harry-Potter-Full-Stack-App
+git clone https://github.com/szabopeter-dev/Harry-Potter-Full-Stack-App
+cd Harry-Potter-Full-Stack-App
+dotnet run --project FN738S_HFT_2023241.Endpoint
 ```
 
-Go to the project directory
-
-```bash
-  cd .\Harry-Potter-Full-Stack-App
-```
-
-Start the application
-
-```bash
-  dotnet run
-```
-
-
-2024 -- GUI added to my Full Stack App
-
+The Web API starts on the default Kestrel port; the WPF, JS, and console
+clients can then be launched against it.
